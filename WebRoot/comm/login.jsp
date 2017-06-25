@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
     <!--登录框-->
-    <div class="modal fade" id="login">
+    <div class="modal fade" id="login" name="userlogin">
         <div class="modal-dialog">
             <div class="modal-content">
                 <!--上面3个div实现了弹出框的遮罩效果和中间内容效果-->
