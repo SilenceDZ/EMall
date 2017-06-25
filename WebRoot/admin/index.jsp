@@ -13,7 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta name="viewport" content="width=device-width,initial-sacle=1" />
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../css/adminComm.css" />
-    <title>EShop后台管理</title>
+    <title>EMall后台管理</title>
 </head>
 
 <body>
