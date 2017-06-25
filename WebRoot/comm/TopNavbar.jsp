@@ -27,7 +27,7 @@
                         <a href="#" data-toggle="modal" data-target="#login">用户登录</a>
                     </li>
                     <li>
-                        <a href="register.html">用户注册</a>
+                        <a href="register.jsp">用户注册</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

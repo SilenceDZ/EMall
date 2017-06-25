@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 
 <body>
-    <jsp:include page="comm/TopNavbar.jsp"></jsp:include>
+    <jsp:include page="comm/topNavbar.jsp"></jsp:include>
     <jsp:include page="comm/carousel.jsp"></jsp:include>
     <%@include file="comm/searchBar.jsp" %>
     <!-- 网页主体 -->
@@ -86,6 +86,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </li>
             </ul>            
         </div><!--end侧边栏-->
+        	
         	<!-- 网页内容商品信息 -->
             <div class="col-sm-8 col-md-8 ">
             	

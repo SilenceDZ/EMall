@@ -1,0 +1,63 @@
+@CHARSET "UTF-8";
+body {
+        padding-top: 50px;
+    }
+    
+    .sidebar {
+        position: fixed;
+        top: 51px;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        display: block;
+        padding: 20px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        background-color: #DDDDDD;
+        border-right: 1 px solid #eee;
+    }
+    
+    .nav-sidebar {
+        margin-right: -21px;
+        margin-bottom: 20px;
+        margin-left: -20px;
+    }
+    
+    .nav-sidebar li span {
+        padding-right: 10px;
+    }
+    
+    .nav-sidebar-subitem>li>a {
+        padding-right: 40px;
+        padding-left: 40px;
+    }
+    
+    .nav-sidebar-subitem>.active>a,
+    .nav-sidebar-subitem>.active>a:hover,
+    .nav-sidebar-subitem>.active>a:focus {
+        color: #fff;
+        background-color: #428bca;
+    }
+    
+    .nav-sidebar>li>a {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+    /*导航栏的a标签 选中,划过样式*/
+    
+    .nav-sidebar>.active>a,
+    .nav-sidebar>.active>a:hover,
+    .nav-sidebar>.active>a:focus {
+        color: #fff;
+        background-color: #428bca;
+    }
+    
+    .main {
+        padding: 20px;
+    }
+    /*管理控制台下面的横线????*/
+    /*页头--页头组件能够为 h1 标签增加适当的空间，并且与页面的其他部分形成一定的分隔。*/
+    
+    .main .page-header {
+        margin-top: 0;
+    }
