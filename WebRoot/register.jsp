@@ -27,44 +27,44 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <form class="form-horizontal" action="" id="registerForm">
                 <div class="form-group">
                     <label for="username" class="control-label col-sm-2">用户名</label>
-                    <div class="col-sm-10"><input type="text" class="form-control" id="Username" placeholder="Username"></div>
+                    <div class="col-sm-10"><input type="text" class="form-control" id="Username" name="username" placeholder="Username"></div>
                 </div>
                 <div class="form-group">
                     <label for="pwd" class="control-label col-sm-2">密码</label>
-                    <div class="col-sm-10"><input type="password" class="form-control" id="Pwd" placeholder="Password"></div>
+                    <div class="col-sm-10"><input type="password" class="form-control" id="Pwd" name="password" placeholder="Password"></div>
                 </div>
                 <div class="form-group">
                     <label for="repwd" class="control-label col-sm-2">确认密码</label>
-                    <div class="col-sm-10"><input type="password" class="form-control" id="Repwd" placeholder="RepeatPassword"></div>
+                    <div class="col-sm-10"><input type="password" class="form-control" id="Repwd" name="repassword" placeholder="RepeatPassword"></div>
                 </div>
                 <div class="form-group">
                     <label for="sex" class="control-label col-sm-2">性别</label>
-                    <div class="col-sm-10"><input type="text" class="form-control" id="Sex" placeholder="Sex"></div>
+                    <div class="col-sm-10"><input type="text" class="form-control" id="Sex" name="sex" placeholder="Sex"></div>
                     
                 </div>
                 <div class="form-group">
                     <label for="realname" class="control-label col-sm-2">真实姓名</label>
-                    <div class="col-sm-10"><input type="text" class="form-control" id="Realname" placeholder="Realname"></div>
+                    <div class="col-sm-10"><input type="text" class="form-control" id="Realname" name="realname" placeholder="Realname"></div>
                 </div>
                 <div class="form-group">
                     <label for="birthday" class="control-label col-sm-2">出生日期</label>
-                    <div class="col-sm-10"><input type="text" class="form-control" id="Birthday" placeholder="Birthday"></div>
+                    <div class="col-sm-10"><input type="text" class="form-control" id="Birthday" name="birthday" placeholder="Birthday"></div>
                 </div>
                 <div class="form-group">
                     <label for="email" class="control-label col-sm-2">电子邮箱</label>
-                    <div class="col-sm-10"><input type="text" class="form-control" id="Email" placeholder="Email"></div>
+                    <div class="col-sm-10"><input type="text" class="form-control" id="Email" name="email" placeholder="Email"></div>
                 </div>
                 <div class="form-group">
                     <label for="tel" class="control-label col-sm-2">电话号码</label>
-                    <div class="col-sm-10"><input type="text" class="form-control" id="Tel" placeholder="Tel"></div>
+                    <div class="col-sm-10"><input type="text" class="form-control" id="Tel" name="id" placeholder="Tel"></div>
                 </div>
                 <div class="form-group">
                     <label for="address" class="control-label col-sm-2">地址</label>
-                    <div class="col-sm-10"><input type="text" class="form-control" id="Address" placeholder="Address"></div>
+                    <div class="col-sm-10"><input type="text" class="form-control" id="Address" name="address" placeholder="Address"></div>
                 </div>
                 <div class="form-group">
                     <label for="post" class="control-label col-sm-2">邮编</label>
-                    <div class="col-sm-10"><input type="text" class="form-control" id="Post" placeholder="Post"></div>
+                    <div class="col-sm-10"><input type="text" class="form-control" id="Post" name="post" placeholder="Post"></div>
                 </div>
                 <button class="btn btn-success col-sm-2 col-sm-offset-2" type="submit">提交</button>
                 <button class="btn btn-success col-sm-2 col-sm-offset-4" type="reset">重置</button>

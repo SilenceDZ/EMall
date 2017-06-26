@@ -13,23 +13,23 @@
                     <h4 class="modal-title">用户登录</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal">
+                    <form class="form-horizontal"  action="">
                         <div class="form-group ">
                             <label for="username" class="control-label col-sm-2">用户名</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="Username" placeholder="Username">
+                                <input type="text" class="form-control" id="Username" name="username" placeholder="Username">
                             </div>
                         </div>
                         <div class="form-group ">
                             <label for="pwd" class="control-label col-sm-2">密码</label>
                             <div class="col-sm-10">
-                                <input type="password" class="form-control" id="Pwd" placeholder="Password">
+                                <input type="password" class="form-control" id="Pwd" name="password" placeholder="Password">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="checkcode" class="control-label col-sm-2">检验码</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="checkcode">
+                                <input type="text" class="form-control" id="checkcode" name="checkcode">
                             </div>
                         </div>
                     </form>
