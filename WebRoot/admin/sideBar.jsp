@@ -7,7 +7,7 @@
                 <!--左侧管理栏-->
                 <ul class="nav nav-sidebar">
                     <li class="active">
-                        <a href="#" class="active">首页<span class="sr-only">(current)</span></a>
+                        <a href="index.jsp" class="active">首页<span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
                 <ul class="nav nav-sidebar">
@@ -17,7 +17,7 @@
                         <div class="collapse" id="commodityManager">
                             <ul class="nav nav-sidebar-subitem ">
                                 <li>
-                                    <a href="#">
+                                    <a href="commodityMana.jsp">
                                         <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>商品类别管理</a>
                                 </li>
                                 <li>

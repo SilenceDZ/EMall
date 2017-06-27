@@ -23,9 +23,7 @@
             <!--下面是导航栏的链接.当上面的自适应图标显示时-->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-left">
-                    <li class="active">
-                        <a href="#">首页<span class="sr-only"></span></a>
-                    </li>   
+                    
                     <li >
                         <p class="navbar-text" id="usermsg">您好！<span id="username">管理员</span></p>
                     </li>                 
