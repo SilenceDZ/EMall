@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<h2 class="page-header" id="pageName">管理控制台首页</h2>
 					
 					<!-- 主体内容 -->
-									
+				</div>				
 			</div>
 		</div>
 		<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
