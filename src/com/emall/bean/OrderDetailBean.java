@@ -1,14 +1,14 @@
 package com.emall.bean;
 
-public class OrderDetail {
+public class OrderDetailBean {
 	private int detailid;
 	private String orderid;
 	private int mcid;
 	private int buynum;
-	public OrderDetail() {
+	public OrderDetailBean() {
 		super();
 	}
-	public OrderDetail(int detailid, String orderid, int mcid, int buynum) {
+	public OrderDetailBean(int detailid, String orderid, int mcid, int buynum) {
 		super();
 		this.detailid = detailid;
 		this.orderid = orderid;
