@@ -128,9 +128,16 @@ public class BaseDao {
 							}else{
 								f.set(obj, val.doubleValue());
 							}
+						}
+						else if(value instanceof String){
+							char val=((String) value).toCharArray()[0];
+							if(f.getType().getName().equals("char")){
+								f.set(obj, val);
+							}
 						}else{
 							f.set(obj, value);
 						}
+						
 					}
 				}
 				return obj;
@@ -190,9 +197,16 @@ public class BaseDao {
 							}else{
 								f.set(obj, val.doubleValue());
 							}
+						}
+						else if(value instanceof String){
+							char val=((String) value).toCharArray()[0];
+							if(f.getType().getName().equals("char")){
+								f.set(obj, val);
+							}
 						}else{
 							f.set(obj, value);
 						}
+						
 					}
 				}
 				list.add(obj);
