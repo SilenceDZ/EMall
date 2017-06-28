@@ -19,7 +19,7 @@ public class McDaoImpl implements IMcDao {
 		params.add(mc.getMcdecx());
 		params.add(mc.getPrice());
 		params.add(mc.getPic());
-		params.add(mc.getFlag());
+		params.add(String.valueOf(mc.getFlag()));
 		params.add(mc.getSmalltypeid());
 		params.add(mc.getCreatedate());
 		params.add(mc.getQuantity());
@@ -36,18 +36,19 @@ public class McDaoImpl implements IMcDao {
 
 	@Override
 	public int update(McBean mc) {
-		String sql="update T_MC set mcname=?,mcdecx=?,price=?,pic=?,flag=?,smalltypeid=?,createdate=?,quantity=? where mcid=?";
+		String sql="update T_MC set mcname=?,mcdecx=?,price=?,pic=?,flag=?,SMALLTYPEID=?,CREATEDATE=?,QUANTITY=? where mcid=?";
 		List<Object>  params=new ArrayList<>();
 		params.add(mc.getMcname());
 		params.add(mc.getMcdecx());
 		params.add(mc.getPrice());
 		params.add(mc.getPic());
-		params.add(mc.getFlag());
+		//在使用的过程中也需要注意,由于Flag时char类型,在转换成sql语句时需要String类型
+		params.add(String.valueOf(mc.getFlag()));
 		params.add(mc.getSmalltypeid());
 		params.add(mc.getCreatedate());
 		params.add(mc.getQuantity());
 		params.add(mc.getMcid());
-		return BaseDao.baseUpdate(sql, params.toArray());
+		return BaseDao.baseUpdate(sql, params.toArray());	
 	}
 
 	@Override
@@ -62,8 +63,8 @@ public class McDaoImpl implements IMcDao {
 		List<Object>  params=new ArrayList<>();
 		if(mc!=null){			
 			if(!WebUtils.isEmpty(mc.getMcname()) ){
-				sql+="and %"+mc.getMcname()+"%";
-				params.add(mc.getMcname());
+				sql+="and mcname like ?";
+				params.add("%"+mc.getMcname()+"%");
 			}
 		}
 		return BaseDao.baseQuery(sql, McBean.class, params.toArray());
@@ -74,9 +75,15 @@ public class McDaoImpl implements IMcDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 	public static void main(String[] args) {
 		McDaoImpl mcd=new McDaoImpl();
 		McBean mc=mcd.queryForSingle(1);
-		System.out.println(mc);
+		mc.setMcid(25);
+		System.out.println(mcd.delete(mc));
+		/*mc.setMcname("测试用电脑2");
+		mc.setPrice(2300.0);
+		mc.setMcdecx("爱买买,不买滚!!!");
+		mcd.add(mc);*/
 	}
 }

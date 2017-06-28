@@ -30,7 +30,6 @@ public class BaseDao {
 		Connection conn=null;
 		PreparedStatement ps=null;
 		conn=Dbutils.getConnection();	
-		
 		try {
 			ps=conn.prepareStatement(sql);
 			if(params!=null){
@@ -115,7 +114,6 @@ public class BaseDao {
 					if(value==null){
 						continue;
 					}
-					System.out.println(value);
 					//判断获取的字段在JavaBean中是否存在其对应的成员属性
 					if(hasField(cls, columnName)){
 						Field f=cls.getDeclaredField(columnName);
@@ -166,6 +164,7 @@ public class BaseDao {
 		ResultSet rs=null;
 		List<T> list=new ArrayList<>();
 		conn=Dbutils.getConnection();
+		
 		try {
 			ps=conn.prepareStatement(sql);
 			if(params!=null){
@@ -178,7 +177,7 @@ public class BaseDao {
 			ResultSetMetaData rsmd=rs.getMetaData();
 			int columnCount=rsmd.getColumnCount();
 			//使用了反射实现与普通实现的区别
-			if(rs.next()){
+			while(rs.next()){
 				//通过反射创建需要返回的类
 				T obj=cls.newInstance(); 
 				for(int i=0;i<columnCount;i++){
@@ -210,8 +209,7 @@ public class BaseDao {
 							}
 						}else{
 							f.set(obj, value);
-						}
-						
+						}						
 					}
 				}
 				list.add(obj);
