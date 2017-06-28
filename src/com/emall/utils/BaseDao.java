@@ -203,6 +203,14 @@ public class BaseDao {
 		}
 		return null;
 	}
+	/**
+	 * @Title:hasField
+	 * @Description:判断实体类是是否有columnName的属性
+	 * @param cls 实体类
+	 * @param columnName 属性名
+	 * @return boolean
+	 * @throws 
+	 */
 	private static <T> boolean hasField(Class<T> cls, String columnName){
 		Field[] fields=cls.getDeclaredFields();
 		for (Field field : fields) {
