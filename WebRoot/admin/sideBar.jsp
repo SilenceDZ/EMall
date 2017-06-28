@@ -12,7 +12,7 @@
                 </ul>
                 <ul class="nav nav-sidebar">
                     <li>
-                        <a data-toggle="collapse" href="#commodityManager" aria-expanded="false" aria-controls="commodityManager">
+                        <a data-toggle="collapse"  href="#commodityManager" aria-expanded="false" aria-controls="commodityManager">
                             <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>商品管理</a>
                         <div class="collapse" id="commodityManager">
                             <ul class="nav nav-sidebar-subitem ">
