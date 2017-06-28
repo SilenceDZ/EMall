@@ -1,6 +1,9 @@
 package com.emall.utils;
 
+import java.sql.Connection;
+
 import javax.sql.DataSource;
+
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 /**
@@ -11,7 +14,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
  *
  */
 public class DataSourceConfig {
-	private static final String URL="jdbc:oracle:thin:@local:1521:xe";
+	private static final String URL="jdbc:oracle:thin:@localhost:1521:xe";
 	private static final String USERNAME="emall";
 	private static final String PASSWORD="emall";
 	private static final String DRIVER="oracle.jdbc.driver.OracleDriver";
@@ -44,5 +47,15 @@ public class DataSourceConfig {
 			e.printStackTrace();
 		}		
 	}
-	
+	public static void main(String[] args) {
+		DataSource dataSource = DataSourceConfig.getDataSource();
+		Connection conn;
+		try {
+			conn = dataSource.getConnection();
+			System.out.println(conn);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 }

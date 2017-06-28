@@ -74,5 +74,9 @@ public class McDaoImpl implements IMcDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	public static void main(String[] args) {
+		McDaoImpl mcd=new McDaoImpl();
+		McBean mc=mcd.queryForSingle(1);
+		mc.toString();
+	}
 }

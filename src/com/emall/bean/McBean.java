@@ -29,6 +29,14 @@ public class McBean {
 		this.createdate = createdate;
 		this.quantity = quantity;
 	}
+	
+	@Override
+	public String toString() {
+		return "McBean [mcid=" + mcid + ", mcname=" + mcname + ", mcdecx="
+				+ mcdecx + ", price=" + price + ", pic=" + pic + ", flag="
+				+ flag + ", smalltypeid=" + smalltypeid + ", createdate="
+				+ createdate + ", quantity=" + quantity + "]";
+	}
 	public int getMcid() {
 		return mcid;
 	}

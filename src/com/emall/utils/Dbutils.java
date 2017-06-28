@@ -14,6 +14,7 @@ import java.sql.Statement;
  *
  */
 public class Dbutils {	
+	
 	/**
 	 * @Title:getConnection
 	 * @Description:获取数据库连接对象
@@ -24,11 +25,11 @@ public class Dbutils {
 		Connection conn=null;
 		try {
 			//原来使用JDBC来连接数据库
-			/*Class.forName(ORACLE_DRIVE);
+			/*Class.forName(DRIVER);
 			conn=DriverManager.getConnection(URL, USERNAME, PASSWORD);*/
 			//使用c3p0数据库连接池连接数据库
 			conn=DataSourceConfig.getDataSource().getConnection();
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}		
 		return conn;

@@ -115,6 +115,8 @@ public class BaseDao {
 					if(value==null){
 						continue;
 					}
+					System.out.println(value);
+					//判断获取的字段在JavaBean中是否存在其对应的成员属性
 					if(hasField(cls, columnName)){
 						Field f=cls.getDeclaredField(columnName);
 						f.setAccessible(true);
