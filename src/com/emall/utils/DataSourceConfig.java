@@ -3,6 +3,13 @@ package com.emall.utils;
 import javax.sql.DataSource;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
+/**
+ * @className:DataSourceConfig
+ * @author fatlamb
+ * @description:c3p0数据库连接池配置类
+ * @date 2017年6月28日
+ *
+ */
 public class DataSourceConfig {
 	private static final String URL="jdbc:oracle:thin:@local:1521:xe";
 	private static final String USERNAME="emall";
@@ -35,8 +42,7 @@ public class DataSourceConfig {
 			dataSource=tempDataSource;
 		}catch(Exception e){
 			e.printStackTrace();
-		}
-		
+		}		
 	}
 	
 }
