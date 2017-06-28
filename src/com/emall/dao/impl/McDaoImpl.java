@@ -77,6 +77,6 @@ public class McDaoImpl implements IMcDao {
 	public static void main(String[] args) {
 		McDaoImpl mcd=new McDaoImpl();
 		McBean mc=mcd.queryForSingle(1);
-		mc.toString();
+		System.out.println(mc);
 	}
 }

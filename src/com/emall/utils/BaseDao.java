@@ -133,6 +133,8 @@ public class BaseDao {
 							char val=((String) value).toCharArray()[0];
 							if(f.getType().getName().equals("char")){
 								f.set(obj, val);
+							}else{
+								f.set(obj, value);
 							}
 						}else{
 							f.set(obj, value);
@@ -202,6 +204,9 @@ public class BaseDao {
 							char val=((String) value).toCharArray()[0];
 							if(f.getType().getName().equals("char")){
 								f.set(obj, val);
+							}
+							else{
+								f.set(obj, value);
 							}
 						}else{
 							f.set(obj, value);
