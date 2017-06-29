@@ -11,7 +11,8 @@ public class McBean {
 	private char flag;
 	private int smalltypeid;
 	private Date createdate ;
-	private int quantity;
+	private int quantity;//库存
+	private int count;//购买数量
 	public McBean() {
 		super();
 	}
@@ -29,13 +30,22 @@ public class McBean {
 		this.createdate = createdate;
 		this.quantity = quantity;
 	}
-	
+	public double getTotalPrice(){
+		return this.price*this.count;
+	}
 	@Override
 	public String toString() {
 		return "McBean [mcid=" + mcid + ", mcname=" + mcname + ", mcdecx="
 				+ mcdecx + ", price=" + price + ", pic=" + pic + ", flag="
 				+ flag + ", smalltypeid=" + smalltypeid + ", createdate="
 				+ createdate + ", quantity=" + quantity + "]";
+	}
+	
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
 	}
 	public int getMcid() {
 		return mcid;

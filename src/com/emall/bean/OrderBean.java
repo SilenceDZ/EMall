@@ -47,6 +47,19 @@ public class OrderBean {
 		this.approveddate = approveddate;
 		this.msg = msg;
 	}
+	
+	@Override
+	public String toString() {
+		return "OrderBean [orderid=" + orderid + ", userid=" + userid
+				+ ",\n quantity=" + quantity + ", alltype=" + alltype
+				+ ",\n totalprice=" + totalprice + ", paytype=" + paytype
+				+ ",\n receivedtype=" + receivedtype + ", username=" + username
+				+ ",\n address=" + address + ", postcode=" + postcode
+				+ ",\n phoneno=" + phoneno + ", email=" + email + ", orderdate="
+				+ orderdate + ", status=" + status + ", approveduser="
+				+ approveduser + ", approveddate=" + approveddate + ", msg="
+				+ msg + "]";
+	}
 	public String getOrderid() {
 		return orderid;
 	}
