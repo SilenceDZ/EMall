@@ -1,11 +1,11 @@
-package com.emall.dao;
+package com.emall.service;
 
 import java.util.List;
 
 import com.emall.bean.ManagerBean;
 import com.emall.utils.PageModel;
 
-public interface IManagerDao {
+public interface IManagerService {
 	/**
 	 * @Title:add
 	 * @Description:添加一个管理员

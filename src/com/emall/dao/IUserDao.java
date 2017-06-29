@@ -46,6 +46,14 @@ public interface IUserDao {
 	 * @throws
 	 */
 	public List<UserBean> query(UserBean user);
+	/**
+	 * @Title:login
+	 * @Description:前台用户登录
+	 * @param username 用户名
+	 * @param password 登录密码
+	 * @return boolean
+	 * @throws
+	 */
 	public boolean login(String username ,String password);
 	public PageModel<UserBean> queryPageModel(UserBean user,int currentPage,int pageSize);
 }

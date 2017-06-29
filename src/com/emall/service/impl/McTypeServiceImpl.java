@@ -4,12 +4,12 @@ import java.util.List;
 
 import com.emall.bean.McTypeBean;
 import com.emall.dao.IMcTypeDao;
-import com.emall.dao.impl.McTypeImpl;
+import com.emall.dao.impl.McTypeDaoImpl;
 import com.emall.service.IMcTypeService;
 import com.emall.utils.PageModel;
 
 public class McTypeServiceImpl implements IMcTypeService {
-	private IMcTypeDao dao=new McTypeImpl();
+	private IMcTypeDao dao=new McTypeDaoImpl();
 	@Override
 	public int add(McTypeBean mcType) {
 		return dao.add(mcType);

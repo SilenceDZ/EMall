@@ -10,7 +10,7 @@ import com.emall.utils.BaseDao;
 import com.emall.utils.PageModel;
 import com.emall.utils.WebUtils;
 
-public class McTypeImpl extends BaseDao implements IMcTypeDao {
+public class McTypeDaoImpl extends BaseDao implements IMcTypeDao {
 
 	@Override
 	public int add(McTypeBean mcType) {
@@ -63,7 +63,7 @@ public class McTypeImpl extends BaseDao implements IMcTypeDao {
 		return null;
 	}
 	public static void main(String[] args) {
-		McTypeImpl dao=new McTypeImpl();
+		McTypeDaoImpl dao=new McTypeDaoImpl();
 		McTypeBean type=dao.queryForSingle(1);
 		/*System.out.println(type);
 		type.setFatherid(0);
