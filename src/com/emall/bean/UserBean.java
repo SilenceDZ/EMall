@@ -40,6 +40,17 @@ public class UserBean {
 		this.lastaccess = lastaccess;
 		this.login = login;
 	}
+	
+	@Override
+	public String toString() {
+		return "UserBean [userid=" + userid + ", username=" + username
+				+ ", password=" + password + ", truename=" + truename
+				+ ", usersex=" + usersex + ", birthday=" + birthday
+				+ ", email=" + email + ", phoneno=" + phoneno + ", postcade="
+				+ postcade + ", address=" + address + ", regdate=" + regdate
+				+ ", lockstate=" + lockstate + ", lastaccess=" + lastaccess
+				+ ", login=" + login + "]";
+	}
 	public int getUserid() {
 		return userid;
 	}

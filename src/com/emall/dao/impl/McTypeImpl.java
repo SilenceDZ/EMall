@@ -10,7 +10,7 @@ import com.emall.utils.BaseDao;
 import com.emall.utils.PageModel;
 import com.emall.utils.WebUtils;
 
-public class McTypeImpl implements IMcTypeDao {
+public class McTypeImpl extends BaseDao implements IMcTypeDao {
 
 	@Override
 	public int add(McTypeBean mcType) {
@@ -18,13 +18,13 @@ public class McTypeImpl implements IMcTypeDao {
 		List<Object>  params=new ArrayList<>();
 		params.add(mcType.getTypename());
 		params.add(mcType.getFatherid());
-		return BaseDao.baseUpdate(sql, params.toArray());
+		return super.baseUpdate(sql, params.toArray());
 	}
 
 	@Override
 	public int delete(McTypeBean mcType) {
 		String sql="delete from T_MCTYPE where typeid=?";		
-		return BaseDao.baseUpdate(sql, mcType.getTypeid());
+		return super.baseUpdate(sql, mcType.getTypeid());
 	}
 
 	@Override
@@ -34,13 +34,13 @@ public class McTypeImpl implements IMcTypeDao {
 		params.add(mcType.getTypename());
 		params.add(mcType.getFatherid());
 		params.add(mcType.getTypeid());
-		return BaseDao.baseUpdate(sql, params.toArray());
+		return super.baseUpdate(sql, params.toArray());
 	}
 
 	@Override
 	public McTypeBean queryForSingle(int typeid) {
 		String sql="select * from T_MCTYPE where typeid=?";
-		return BaseDao.queryForSingle(sql, McTypeBean.class, typeid);
+		return super.queryForSingle(sql, McTypeBean.class, typeid);
 	}
 
 	@Override
@@ -53,7 +53,7 @@ public class McTypeImpl implements IMcTypeDao {
 				params.add("%"+mcType.getTypename()+"%");
 			}
 		}
-		return BaseDao.baseQuery(sql, McTypeBean.class, params.toArray());
+		return super.baseQuery(sql, McTypeBean.class, params.toArray());
 	}
 
 	@Override

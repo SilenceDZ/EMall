@@ -9,7 +9,7 @@ import com.emall.utils.BaseDao;
 import com.emall.utils.PageModel;
 import com.emall.utils.WebUtils;
 
-public class McDaoImpl implements IMcDao {
+public class McDaoImpl extends BaseDao implements IMcDao {
 
 	@Override
 	public int add(McBean mc) {
@@ -23,7 +23,7 @@ public class McDaoImpl implements IMcDao {
 		params.add(mc.getSmalltypeid());
 		params.add(mc.getCreatedate());
 		params.add(mc.getQuantity());
-		return BaseDao.baseUpdate(sql, params.toArray());
+		return super.baseUpdate(sql, params.toArray());
 	}
 
 	@Override
@@ -31,7 +31,7 @@ public class McDaoImpl implements IMcDao {
 		String sql="delete from T_MC where mcid=?";
 		List<Object>  params=new ArrayList<>();
 		params.add(mc.getMcid());
-		return BaseDao.baseUpdate(sql,params.toArray() );
+		return super.baseUpdate(sql,params.toArray() );
 	}
 
 	@Override
@@ -48,13 +48,13 @@ public class McDaoImpl implements IMcDao {
 		params.add(mc.getCreatedate());
 		params.add(mc.getQuantity());
 		params.add(mc.getMcid());
-		return BaseDao.baseUpdate(sql, params.toArray());	
+		return super.baseUpdate(sql, params.toArray());	
 	}
 
 	@Override
 	public McBean queryForSingle(int mcid) {
 		String sql="select * from T_MC where mcid=?";		
-		return BaseDao.queryForSingle(sql, McBean.class, mcid);
+		return super.queryForSingle(sql, McBean.class, mcid);
 	}
 
 	@Override
@@ -67,7 +67,7 @@ public class McDaoImpl implements IMcDao {
 				params.add("%"+mc.getMcname()+"%");
 			}
 		}
-		return BaseDao.baseQuery(sql, McBean.class, params.toArray());
+		return super.baseQuery(sql, McBean.class, params.toArray());
 	}
 
 	/* (non-Javadoc)
