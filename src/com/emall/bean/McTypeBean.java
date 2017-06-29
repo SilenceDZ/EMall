@@ -13,6 +13,12 @@ public class McTypeBean {
 		this.typename = typename;
 		this.fatherid = fatherid;
 	}
+	
+	@Override
+	public String toString() {
+		return "McTypeBean [typeid=" + typeid + ", typename=" + typename
+				+ ", fatherid=" + fatherid + "]";
+	}
 	public int getTypeid() {
 		return typeid;
 	}
