@@ -2,7 +2,6 @@ package com.emall.service;
 
 import java.util.List;
 
-import com.emall.bean.McBean;
 import com.emall.bean.UserBean;
 import com.emall.utils.PageModel;
 
