@@ -27,14 +27,12 @@ public class OrderServiceImpl implements IOrderService {
 
 	@Override
 	public OrderBean queryForSingle(String orderid) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.queryForSingle(orderid);
 	}
 
 	@Override
 	public List<OrderBean> query(OrderBean order) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.query(order);
 	}
 
 	@Override
