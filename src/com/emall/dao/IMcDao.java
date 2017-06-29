@@ -42,7 +42,7 @@ public interface IMcDao {
 	 * @Title:query
 	 * @Description:查询商品类集合
 	 * @param mc 商品实体类
-	 * @return
+	 * @return List<McBean>
 	 * @throws
 	 */
 	public List<McBean> query(McBean mc);

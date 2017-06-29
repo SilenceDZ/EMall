@@ -8,41 +8,41 @@ import com.emall.utils.PageModel;
 public interface IUserDao {
 	/**
 	 * @Title:add
-	 * @Description:添加一个商品实体
-	 * @param user 商品实体类
+	 * @Description:添加一个用户
+	 * @param user 要添加的 用户对象
 	 * @return int
 	 * @throws
 	 */
 	public int add(UserBean user);
 	/**
 	 * @Title:delete
-	 * @Description:删除一个商品实体类
-	 * @param user 商品实体类对象
+	 * @Description:删除一个用户
+	 * @param user 要删除的 用户对象
 	 * @return int
 	 * @throws
 	 */
 	public int delete(UserBean user);
 	/**
 	 * @Title:update
-	 * @Description:更新一个商品实体类
-	 * @param user 跟新的商品实体类对象
+	 * @Description:更新一个用户信息
+	 * @param user 要更新的用户对象
 	 * @return int
 	 * @throws
 	 */
 	public int update(UserBean user);
 	/**
 	 * @Title:queryForSingle
-	 * @Description:根据商品id查询一个商品实体类
-	 * @param mcid 商品id
-	 * @return 商品实体类对象
+	 * @Description:根据用户id查询一个用户
+	 * @param userid 用户id
+	 * @return 用户实体类对象
 	 * @throws
 	 */
 	public UserBean queryForSingle(int userid);
 	/**
 	 * @Title:query
-	 * @Description:查询商品类集合
-	 * @param user 商品实体类
-	 * @return
+	 * @Description:查询用户集合
+	 * @param user 用户对象,用来传递查询参数
+	 * @return List<UserBean>
 	 * @throws
 	 */
 	public List<UserBean> query(UserBean user);
