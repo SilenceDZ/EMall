@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 import com.emall.bean.McTypeBean;
+import com.emall.bean.PageModel;
 import com.emall.dao.IMcTypeDao;
 import com.emall.utils.BaseDao;
-import com.emall.utils.PageModel;
 import com.emall.utils.WebUtils;
 
 public class McTypeDaoImpl extends BaseDao implements IMcTypeDao {

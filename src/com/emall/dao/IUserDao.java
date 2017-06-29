@@ -2,8 +2,8 @@ package com.emall.dao;
 
 import java.util.List;
 
+import com.emall.bean.PageModel;
 import com.emall.bean.UserBean;
-import com.emall.utils.PageModel;
 
 public interface IUserDao {
 	/**

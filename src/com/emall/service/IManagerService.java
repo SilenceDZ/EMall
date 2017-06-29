@@ -3,7 +3,7 @@ package com.emall.service;
 import java.util.List;
 
 import com.emall.bean.ManagerBean;
-import com.emall.utils.PageModel;
+import com.emall.bean.PageModel;
 
 public interface IManagerService {
 	/**

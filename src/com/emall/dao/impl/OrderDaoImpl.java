@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.emall.bean.OrderBean;
+import com.emall.bean.PageModel;
 import com.emall.dao.IOrderDao;
 import com.emall.utils.BaseDao;
-import com.emall.utils.PageModel;
 import com.emall.utils.WebUtils;
 
 public class OrderDaoImpl extends BaseDao implements IOrderDao {

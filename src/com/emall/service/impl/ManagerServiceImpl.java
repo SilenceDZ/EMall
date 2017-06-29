@@ -3,10 +3,10 @@ package com.emall.service.impl;
 import java.util.List;
 
 import com.emall.bean.ManagerBean;
+import com.emall.bean.PageModel;
 import com.emall.dao.IManagerDao;
 import com.emall.dao.impl.ManagerDaoImpl;
 import com.emall.service.IManagerService;
-import com.emall.utils.PageModel;
 
 public class ManagerServiceImpl implements IManagerService {
 	private IManagerDao dao=new ManagerDaoImpl();

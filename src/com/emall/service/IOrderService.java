@@ -3,7 +3,7 @@ package com.emall.service;
 import java.util.List;
 
 import com.emall.bean.OrderBean;
-import com.emall.utils.PageModel;
+import com.emall.bean.PageModel;
 
 public interface IOrderService {
 public int add(OrderBean order);

@@ -2,11 +2,11 @@ package com.emall.service.impl;
 
 import java.util.List;
 
+import com.emall.bean.PageModel;
 import com.emall.bean.UserBean;
 import com.emall.dao.IUserDao;
 import com.emall.dao.impl.UserDaoImpl;
 import com.emall.service.IUserService;
-import com.emall.utils.PageModel;
 
 public class UserServiceImpl implements IUserService {
 	private IUserDao dao=new UserDaoImpl();

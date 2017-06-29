@@ -3,10 +3,10 @@ package com.emall.dao.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.emall.bean.PageModel;
 import com.emall.bean.UserBean;
 import com.emall.dao.IUserDao;
 import com.emall.utils.BaseDao;
-import com.emall.utils.PageModel;
 import com.emall.utils.WebUtils;
 
 public class UserDaoImpl extends BaseDao implements IUserDao {

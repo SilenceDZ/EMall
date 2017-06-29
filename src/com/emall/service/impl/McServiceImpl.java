@@ -3,10 +3,10 @@ package com.emall.service.impl;
 import java.util.List;
 
 import com.emall.bean.McBean;
+import com.emall.bean.PageModel;
 import com.emall.dao.IMcDao;
 import com.emall.dao.impl.McDaoImpl;
 import com.emall.service.IMcService;
-import com.emall.utils.PageModel;
 
 public class McServiceImpl implements IMcService {
 	private IMcDao mcDao=new McDaoImpl();

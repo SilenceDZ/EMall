@@ -3,7 +3,7 @@ package com.emall.dao;
 import java.util.List;
 
 import com.emall.bean.McTypeBean;
-import com.emall.utils.PageModel;
+import com.emall.bean.PageModel;
 
 public interface IMcTypeDao {
 	/**

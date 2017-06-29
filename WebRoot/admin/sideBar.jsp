@@ -17,7 +17,7 @@
                         <div class="collapse" id="commodityManager">
                             <ul class="nav nav-sidebar-subitem ">
                                 <li>
-                                    <a href="commodityMana.jsp">
+                                    <a href="/McServlet?action=typeMana">
                                         <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>商品类别管理</a>
                                 </li>
                                 <li>

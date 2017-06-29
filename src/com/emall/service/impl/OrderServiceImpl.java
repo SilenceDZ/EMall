@@ -3,10 +3,10 @@ package com.emall.service.impl;
 import java.util.List;
 
 import com.emall.bean.OrderBean;
+import com.emall.bean.PageModel;
 import com.emall.dao.IOrderDao;
 import com.emall.dao.impl.OrderDaoImpl;
 import com.emall.service.IOrderService;
-import com.emall.utils.PageModel;
 
 public class OrderServiceImpl implements IOrderService {
 	private IOrderDao dao=new OrderDaoImpl();

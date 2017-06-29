@@ -3,7 +3,7 @@ package com.emall.service;
 import java.util.List;
 
 import com.emall.bean.McBean;
-import com.emall.utils.PageModel;
+import com.emall.bean.PageModel;
 
 public interface IMcService {
 	/**

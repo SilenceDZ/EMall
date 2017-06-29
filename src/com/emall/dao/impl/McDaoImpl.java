@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.emall.bean.McBean;
+import com.emall.bean.PageModel;
 import com.emall.dao.IMcDao;
 import com.emall.utils.BaseDao;
-import com.emall.utils.PageModel;
 import com.emall.utils.WebUtils;
 
 public class McDaoImpl extends BaseDao implements IMcDao {
