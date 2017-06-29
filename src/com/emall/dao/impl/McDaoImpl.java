@@ -70,6 +70,16 @@ public class McDaoImpl implements IMcDao {
 		return BaseDao.baseQuery(sql, McBean.class, params.toArray());
 	}
 
+	/* (non-Javadoc)
+	 * @see com.emall.dao.IMcDao#queryPageModel(com.emall.bean.McBean, int, int)
+	 * <p>Title:queryPageModel</p>
+	 * <p>Description:</p>
+	 * @param mc
+	 * @param currentPage
+	 * @param pageSize
+	 * @return
+	 * @see com.emall.dao.IMcDao#queryPageModel(com.emall.bean.McBean, int, int)
+	 */
 	@Override
 	public PageModel<McBean> queryPageModel(McBean mc, int currentPage, int pageSize) {
 		// TODO Auto-generated method stub
