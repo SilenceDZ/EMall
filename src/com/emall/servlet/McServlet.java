@@ -10,8 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.emall.bean.McBean;
 import com.emall.bean.McTypeBean;
+import com.emall.service.IMcService;
 import com.emall.service.IMcTypeService;
+import com.emall.service.impl.McServiceImpl;
 import com.emall.service.impl.McTypeServiceImpl;
 
 
@@ -20,7 +23,6 @@ public class McServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
-	private IMcTypeService dao=new McTypeServiceImpl();
 	/**
 	 * Constructor of the object.
 	 */
@@ -75,13 +77,17 @@ public class McServlet extends HttpServlet {
 		out.close();
 	}
 	public void mcTypeManage(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {		
+			throws ServletException, IOException {	
+		IMcTypeService dao=new McTypeServiceImpl();
 		List<McTypeBean> list=dao.query(null);
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("admin/mcManager.jsp").forward(request, response);
 	}
 	public void mcInfoManage(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		IMcService dao=new McServiceImpl();
+		List<McBean> list=dao.query(null);
+		request.setAttribute("list", list);
 		request.getRequestDispatcher("admin/mcInfoManage.jsp").forward(request, response);
 	}
 	public void addMc(HttpServletRequest request, HttpServletResponse response)

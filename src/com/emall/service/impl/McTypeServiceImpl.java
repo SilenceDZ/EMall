@@ -38,8 +38,7 @@ public class McTypeServiceImpl implements IMcTypeService {
 	@Override
 	public PageModel<McTypeBean> queryPageModel(McTypeBean mcType, int currentPage,
 			int pageSize) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.queryPageModel(mcType, currentPage, pageSize);
 	}
 
 }

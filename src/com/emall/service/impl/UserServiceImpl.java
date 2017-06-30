@@ -44,8 +44,7 @@ public class UserServiceImpl implements IUserService {
 	@Override
 	public PageModel<UserBean> queryPageModel(UserBean user, int currentPage,
 			int pageSize) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.queryPageModel(user, currentPage, pageSize);
 	}
 	
 }

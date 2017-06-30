@@ -38,8 +38,7 @@ public class McServiceImpl implements IMcService {
 	@Override
 	public PageModel<McBean> queryPageModel(McBean mc, int currentPage,
 			int pageSize) {
-		// TODO Auto-generated method stub
-		return null;
+		return mcDao.queryPageModel(mc, currentPage, pageSize);
 	}
 
 }

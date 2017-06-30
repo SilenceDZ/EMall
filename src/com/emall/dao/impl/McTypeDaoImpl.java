@@ -5,6 +5,9 @@ import java.util.List;
 
 
 
+
+
+
 import com.emall.bean.McTypeBean;
 import com.emall.bean.PageModel;
 import com.emall.dao.IMcTypeDao;
@@ -61,23 +64,37 @@ public class McTypeDaoImpl extends BaseDao implements IMcTypeDao {
 	@Override
 	public PageModel<McTypeBean> queryPageModel(McTypeBean mcType, int currentPage,
 			int pageSize) {
-		// TODO Auto-generated method stub
-		return null;
+		StringBuffer querySql = new StringBuffer(" select * from T_MCTYPE ");
+		StringBuffer whereSql = new StringBuffer(" where 1=1 ");
+		StringBuffer countSql = new StringBuffer(" select count(1) from T_MCTYPE");
+		List<Object>  params = new ArrayList<>();
+		if(mcType!=null){
+			if(!WebUtils.isEmpty(mcType.getTypename())){
+				whereSql.append(" and typename like ? ");
+				params.add("%"+mcType.getTypename()+"%");
+			}
+		}
+		return super.queryPageModel(querySql, countSql, whereSql, null, McTypeBean.class, currentPage, pageSize, params);
 	}
 	public static void main(String[] args) {
-		McTypeDaoImpl dao=new McTypeDaoImpl();
+		/*McTypeDaoImpl dao=new McTypeDaoImpl();
 		McTypeBean type=dao.queryForSingle(1);
+		PageModel<McTypeBean> page=dao.queryPageModel(null, 1, 3);
+		List<McTypeBean> list=page.getResult();
+		for (McTypeBean md : list) {
+			System.out.println(md);
+		}*/
 		/*System.out.println(type);
 		type.setFatherid(0);
 		type.setTypename("测试类别1");
 		System.out.println(dao.add(type));
 		type.setTypeid(9);
 		System.out.println(dao.delete(type));*/
-		List<McTypeBean> li=new ArrayList<McTypeBean>();
+		/*List<McTypeBean> li=new ArrayList<McTypeBean>();
 		type.setTypename("机");
 		li=dao.query(type);
 		for (Object obj : li) {
 			System.out.println(obj);
-		}
+		}*/
 	}
 }

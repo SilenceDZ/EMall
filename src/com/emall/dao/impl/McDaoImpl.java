@@ -70,27 +70,44 @@ public class McDaoImpl extends BaseDao implements IMcDao {
 		return super.baseQuery(sql, McBean.class, params.toArray());
 	}
 
-	/* (non-Javadoc)
-	 * @see com.emall.dao.IMcDao#queryPageModel(com.emall.bean.McBean, int, int)
-	 * <p>Title:queryPageModel</p>
-	 * <p>Description:</p>
-	 * @param mc
-	 * @param currentPage
-	 * @param pageSize
-	 * @return
-	 * @see com.emall.dao.IMcDao#queryPageModel(com.emall.bean.McBean, int, int)
-	 */
 	@Override
 	public PageModel<McBean> queryPageModel(McBean mc, int currentPage, int pageSize) {
-		// TODO Auto-generated method stub
-		return null;
+		/**
+		 * select * from t_mc where mcname like '%佳能%' order by mcid desc
+		 * 
+		 * querySql :  确定数据源     select * from t_mc
+		 * whereSql :   查询的条件
+		 * countSql :   统计数据源中有多少条数据  select count(1) from t_mc
+		 * otherSql :  查询后的数据进行排序   order by mcid desc 
+		 * params :   SQL语句中占位符对应的参数
+		 */
+		StringBuffer querySql = new StringBuffer(" select * from t_mc ");
+		StringBuffer whereSql = new StringBuffer(" where 1=1 ");
+		StringBuffer countSql = new StringBuffer(" select count(1) from t_mc");
+		//需要时就传这个参数,不需要设为null
+//		StringBuffer otherSql = new StringBuffer(" order by mcid desc ");
+		//保存SQL语句中对应的参数数据
+		List<Object>  params = new ArrayList<>();
+		if(mc!=null){
+			if(!WebUtils.isEmpty(mc.getMcname())){
+				whereSql.append(" and mcname like ? ");
+				params.add("%"+mc.getMcname()+"%");
+			}
+		}
+
+		return super.queryPageModel(querySql,countSql,whereSql,null,McBean.class,currentPage,pageSize,params);
 	}
 	
 	public static void main(String[] args) {
 		McDaoImpl mcd=new McDaoImpl();
-		McBean mc=mcd.queryForSingle(1);
-		mc.setMcid(25);
-		System.out.println(mcd.delete(mc));
+//		McBean mc=mcd.queryForSingle(1);
+		PageModel<McBean> page=mcd.queryPageModel(null, 1, 3);
+		List<McBean> list=page.getResult();
+		for (McBean md : list) {
+			System.out.println(md);
+		}
+		/*mc.setMcid(25);
+		System.out.println(mcd.delete(mc));*/
 		/*mc.setMcname("测试用电脑2");
 		mc.setPrice(2300.0);
 		mc.setMcdecx("爱买买,不买滚!!!");

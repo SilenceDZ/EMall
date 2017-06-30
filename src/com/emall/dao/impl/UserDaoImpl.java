@@ -89,16 +89,30 @@ public class UserDaoImpl extends BaseDao implements IUserDao {
 	@Override
 	public PageModel<UserBean> queryPageModel(UserBean user, int currentPage,
 			int pageSize) {
-		// TODO Auto-generated method stub
-		return null;
+		StringBuffer querySql = new StringBuffer(" select * from t_user ");
+		StringBuffer whereSql = new StringBuffer(" where 1=1 ");
+		StringBuffer countSql = new StringBuffer(" select count(1) from t_user");
+		List<Object>  params = new ArrayList<>();
+		if(user!=null){
+			if(!WebUtils.isEmpty(user.getUsername())){
+				whereSql.append(" and username like ? ");
+				params.add("%"+user.getUsername()+"%");
+			}
+		}
+		return super.queryPageModel(querySql, countSql, whereSql, null, UserBean.class, currentPage, pageSize, params);
 	}
 	public static void main(String[] args) {
-		UserDaoImpl dao=new UserDaoImpl();
+		/*UserDaoImpl dao=new UserDaoImpl();
 		UserBean user=dao.queryForSingle(1);
 		System.out.println(user);
-		System.out.println(dao.login("a00001", "123456"));
+		PageModel<UserBean> page=dao.queryPageModel(null, 1, 3);
+		List<UserBean> list=page.getResult();
+		for (UserBean md : list) {
+			System.out.println(md);
+		}*/
+		/*System.out.println(dao.login("a00001", "123456"));
 		user.setPassword("zhong");
-		dao.update(user);
+		dao.update(user);*/
 		/*user.setUsername("test3");
 		user.setPassword("1111111");
 		dao.add(user);

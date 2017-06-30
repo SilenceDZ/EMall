@@ -38,8 +38,7 @@ public class OrderServiceImpl implements IOrderService {
 	@Override
 	public PageModel<OrderBean> queryPageModel(OrderBean order,
 			int currentPage, int pageSize) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.queryPageModel(order, currentPage, pageSize);
 	}
 
 }

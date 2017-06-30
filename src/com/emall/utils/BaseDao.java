@@ -10,6 +10,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.emall.bean.PageModel;
+
 /**
  * @className:BaseDao
  * @author fatlamb
@@ -238,5 +240,54 @@ public class BaseDao {
 			}
 		}
 		return false;
+	}
+	private static final String PAGE_SQL_START = " select t2.* from ( select t1.*,rownum num from ( ";
+	private static final String PAGE_SQL_END = " ) t1 where rownum<=? ) t2 where num>=? ";
+	
+	/**
+	 * @Title:queryPageModel
+	 * @Description:TODO
+	 * @param querySql 确定数据源     select * from (tableName)
+	 * @param countSql 统计数据源中有多少条数据  select count(1) from (tableName)
+	 * @param whereSql 查询的条件
+	 * @param ohterSql 查询后的数据进行排序  不需要这个条件时传null  order by (columnName) desc
+	 * @param cls 查询的实体类
+	 * @param currentPage 当前页面
+	 * @param pageSize 页面大小
+	 * @param params Sql查询语句
+	 * @return
+	 * @throws
+	 */
+	public static <T> PageModel<T> queryPageModel(StringBuffer querySql, StringBuffer countSql,
+			StringBuffer whereSql,StringBuffer otherSql,Class<T> cls, 
+			int currentPage, int pageSize, List<Object> params) {
+		//获取数据库中表中的总记录数
+		countSql.append(whereSql); // select count(1) from t_mc where mcid>20
+		int totalCount = queryForCount(countSql.toString(), params.toArray());	
+		//拼接分页查询的SQL语句querySql
+		querySql.append(whereSql);  //拼接上查询条件
+		//加上otherSql查询就从最后开始 因为order by desc 是降序
+//		querySql.append(otherSql);
+		if(otherSql!=null){
+			querySql.append(otherSql);
+		}
+		querySql.insert(0, PAGE_SQL_START); //在querySql字符串之前插入一个字符串PAGE_SQL_START
+		querySql.append(PAGE_SQL_END); //在querySql字符串后面追加字符串PAGE_SQL_END
+		//根据获取到参数计算开始下标和结束下标
+		int startIndex = pageSize*(currentPage-1)+1;
+		int endIndex = pageSize*currentPage;
+		//System.out.println(startIndex+","+endIndex);
+		//将计算好的下标保存到params集合中  保存的顺序不要反了
+		params.add(endIndex);
+		params.add(startIndex);
+		//查询分页的数据
+		List<T> list = baseQuery(querySql.toString(), cls, params.toArray());
+		//将查询出来的数据保存到PageModel中
+		PageModel<T> pageModel = new PageModel<T>();
+		pageModel.setCurrentPage(currentPage);
+		pageModel.setPageSize(pageSize);
+		pageModel.setTotalCount(totalCount);
+		pageModel.setResult(list);
+		return pageModel;
 	}
 }

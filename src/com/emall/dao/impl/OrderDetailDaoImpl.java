@@ -7,6 +7,7 @@ import com.emall.bean.OrderDetailBean;
 import com.emall.bean.PageModel;
 import com.emall.dao.IOrderDetailDao;
 import com.emall.utils.BaseDao;
+import com.emall.utils.WebUtils;
 
 public class OrderDetailDaoImpl extends BaseDao implements IOrderDetailDao{
 
@@ -51,10 +52,19 @@ public class OrderDetailDaoImpl extends BaseDao implements IOrderDetailDao{
 	}
 
 	@Override
-	public PageModel<OrderDetailBean> queryPageModel(OrderDetailBean order,
+	public PageModel<OrderDetailBean> queryPageModel(OrderDetailBean orderdetail,
 			int currentPage, int pageSize) {
-		// TODO Auto-generated method stub
-		return null;
+		StringBuffer querySql = new StringBuffer(" select * from T_ORDERDETAIL ");
+		StringBuffer whereSql = new StringBuffer(" where 1=1 ");
+		StringBuffer countSql = new StringBuffer(" select count(1) from T_ORDERDETAIL");
+		List<Object>  params = new ArrayList<>();
+		if(orderdetail!=null){
+			if(!WebUtils.isEmpty(orderdetail.getOrderid())){
+				whereSql.append(" and orderid like ? ");
+				params.add("%"+orderdetail.getOrderid()+"%");
+			}
+		}
+		return super.queryPageModel(querySql, countSql, whereSql, null, OrderDetailBean.class, currentPage, pageSize, params);
 	}
 
 }

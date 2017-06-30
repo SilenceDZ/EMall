@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<div class="input-group">
 								<input type="text" class="form-control" placeholder="Search for...">
 								<span class="input-group-btn">
-					        <button class="btn btn-default" type="button">search</button>
+					        <button class="btn btn-default" type="button">搜索</button>
 					      </span>
 							</div>
 							<!-- /input-group -->
@@ -47,7 +47,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<!-- 主体内容 -->
 					<table class="table table-hover ">
 						<tr>
-							<th>选择</th>
+							<th><input type="checkbox">选择</th>
 							<th>类别编号</th>
 							<th>类别名称</th>
 							<th>所属父类</th>
@@ -58,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<td><input type="checkbox"></td>
 							<td>${mcType.typeid }</td>							
 							<c:if test="${mcType.fatherid>0}">
-								<td ><p class="pull-right">${mcType.typename }</p></td>
+								<td ><p class="text-center">${mcType.typename }</p></td>
 							</c:if>
 							<c:if test="${mcType.fatherid==0}">
 								<td>${mcType.typename }</td>

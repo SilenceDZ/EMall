@@ -1,11 +1,14 @@
 package com.emall.dao.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.emall.bean.OrderBean;
+import com.emall.bean.OrderDetailBean;
 import com.emall.bean.PageModel;
 import com.emall.dao.IOrderDao;
+import com.emall.dao.IOrderDetailDao;
 import com.emall.utils.BaseDao;
 import com.emall.utils.WebUtils;
 
@@ -16,6 +19,8 @@ public class OrderDaoImpl extends BaseDao implements IOrderDao {
 		String sql="insert into T_ORDERS(ORDERID,USERID,QUANTITY,ALLTYPE,TOTALPRICE,PAYTYPE,RECEIVEDTYPE,USERNAME,"
 				+ "ADDRESS,POSTCODE,PHONENO,EMAIL,ORDERDATE,STATUS,APPROVEDUSER,APPROVEDDATE,MSG) values(?,?,?,?,?,?,?,?,"
 				+ "?,?,?,?,?,?,?,?,?)";
+		//!!!!----->values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,sysdate,?)"
+		String orderid=new Date().getTime()+"";
 		List<Object>  params=new ArrayList<>();
 		params.add(order.getOrderid());
 		params.add(order.getUserid());
@@ -34,7 +39,16 @@ public class OrderDaoImpl extends BaseDao implements IOrderDao {
 		params.add(order.getApproveduser());
 		params.add(order.getApproveddate());
 		params.add(order.getMsg());
-		return super.baseUpdate(sql, params.toArray());
+		int i=super.baseUpdate(sql, params.toArray());
+		//添加订单信息后页要添加订单详情 这两个是要同时成功或同时失败-->做事物处理.
+		//todo
+		List<OrderDetailBean> list=order.getList();
+		IOrderDetailDao dao=new OrderDetailDaoImpl();
+		for (OrderDetailBean odb : list) {
+			odb.setOrderid(orderid);
+			dao.add(odb);
+		}
+		return i;
 	}
 
 	@Override
@@ -91,19 +105,34 @@ public class OrderDaoImpl extends BaseDao implements IOrderDao {
 	@Override
 	public PageModel<OrderBean> queryPageModel(OrderBean order,
 			int currentPage, int pageSize) {
-		// TODO Auto-generated method stub
-		return null;
+		StringBuffer querySql = new StringBuffer(" select * from T_ORDERS ");
+		StringBuffer whereSql = new StringBuffer(" where 1=1 ");
+		StringBuffer countSql = new StringBuffer(" select count(1) from T_ORDERS");
+		List<Object>  params = new ArrayList<>();
+		if(order!=null){
+			if(!WebUtils.isEmpty(order.getUsername())){
+				whereSql.append(" and username like ? ");
+				params.add("%"+order.getUsername()+"%");
+			}
+		}
+		return super.queryPageModel(querySql, countSql, whereSql, null, OrderBean.class, currentPage, pageSize, params);
 	}
 	public static void main(String[] args) {
-		OrderBean order=new OrderBean();
-		OrderDaoImpl dao=new OrderDaoImpl();
-		order=dao.queryForSingle("130917205949004");
+		/*OrderBean order=new OrderBean();
 		System.out.println(order);
-		/*order.setMsg("快快快,快发货");
+		OrderDaoImpl dao=new OrderDaoImpl();
+		PageModel<OrderBean> page=dao.queryPageModel(null, 1, 3);
+		List<OrderBean> list=page.getResult();
+		for (OrderBean md : list) {
+			System.out.println(md);
+		}*/
+		/*order=dao.queryForSingle("130917205949004");
+		System.out.println(order);
+		order.setMsg("快快快,快发货");
 		System.out.println(dao.update(order));
 		order=dao.queryForSingle("130917205949004");
-		System.out.println(order);*/
+		System.out.println(order);
 		order.setOrderid("130917205659004");
-		dao.add(order);
+		dao.add(order);*/
 	}
 }

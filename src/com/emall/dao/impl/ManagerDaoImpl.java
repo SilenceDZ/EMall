@@ -3,6 +3,7 @@ package com.emall.dao.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import com.emall.bean.ManagerBean;
 import com.emall.bean.PageModel;
 import com.emall.dao.IManagerDao;
@@ -77,8 +78,17 @@ public class ManagerDaoImpl extends BaseDao implements IManagerDao {
 	@Override
 	public PageModel<ManagerBean> queryPageModel(ManagerBean manager,
 			int currentPage, int pageSize) {
-		// TODO Auto-generated method stub
-		return null;
+		StringBuffer querySql = new StringBuffer(" select * from t_manager ");
+		StringBuffer whereSql = new StringBuffer(" where 1=1 ");
+		StringBuffer countSql = new StringBuffer(" select count(1) from t_manager");
+		List<Object>  params = new ArrayList<>();
+		if(manager!=null){
+			if(!WebUtils.isEmpty(manager.getMusername())){
+				whereSql.append(" and musername like ? ");
+				params.add("%"+manager.getMusername()+"%");
+			}
+		}
+		return super.queryPageModel(querySql, countSql, whereSql, null, ManagerBean.class, currentPage, pageSize, params);
 	}
 	public static void main(String[] args) {
 		ManagerDaoImpl dao=new ManagerDaoImpl();

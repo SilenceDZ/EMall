@@ -43,8 +43,7 @@ public class ManagerServiceImpl implements IManagerService {
 	@Override
 	public PageModel<ManagerBean> queryPageModel(ManagerBean manager,
 			int currentPage, int pageSize) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.queryPageModel(manager, currentPage, pageSize);
 	}
 
 }

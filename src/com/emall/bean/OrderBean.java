@@ -1,6 +1,8 @@
 package com.emall.bean;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 public class OrderBean {
 	private String orderid;
@@ -15,13 +17,15 @@ public class OrderBean {
 	private String postcode;
 	private String phoneno;
 	private String email;
-	private Date orderdate;
-	private char status;
-	private String approveduser;
-	private Date approveddate;
-	private String msg;
+	private Date orderdate;//先订单的时间
+	private char status;//0未审核 1 已审核 2订单被损坏
+	private String approveduser; //审核人
+	private Date approveddate;//审核日期
+	private String msg;//审核信息
+	private List<OrderDetailBean> list;
 	public OrderBean() {
 		super();
+		list=new ArrayList<OrderDetailBean>();
 	}
 	public OrderBean(String orderid, int userid, int quantity, int alltype,
 			double totalprice, String paytype, String receivedtype,
@@ -46,6 +50,7 @@ public class OrderBean {
 		this.approveduser = approveduser;
 		this.approveddate = approveddate;
 		this.msg = msg;
+		list=new ArrayList<OrderDetailBean>();
 	}
 	
 	@Override
@@ -59,6 +64,13 @@ public class OrderBean {
 				+ orderdate + ", status=" + status + ", approveduser="
 				+ approveduser + ", approveddate=" + approveddate + ", msg="
 				+ msg + "]";
+	}
+	
+	public List<OrderDetailBean> getList() {
+		return list;
+	}
+	public void setList(List<OrderDetailBean> list) {
+		this.list = list;
 	}
 	public String getOrderid() {
 		return orderid;
