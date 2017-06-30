@@ -24,19 +24,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <div class="collapse" id="commodityManager">
                             <ul class="nav nav-sidebar-subitem ">
                                 <li>
-                                    <a href="<%=path %>/servlet/Test">
+                                    <a href="McServlet">
                                         <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>商品类别管理</a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="admin/index.jsp">
                                         <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>商品信息管理</a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="/admin">
                                         <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>添加商品</a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="/admin">
                                         <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>添加商品类别</a>
                                 </li>
                             </ul>
