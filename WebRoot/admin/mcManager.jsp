@@ -20,6 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			//再执行后续的代码
 			$(document).ready(function(){
 				initPageBar();
+				initPageBarEvent();
 			});
 			function initPageBar(){
 			var currentPage=$("#currentPage").text();
@@ -39,6 +40,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				if($("#nextPage2").text()>pageCount){
 					$("#nextPage2").hide();
 				}
+			}
+			
+			function initPageBarEvent(){
+				
+			}
+			
+			function changePageSize(sizeValue){
+				$("#pageSize").html(sizeValue);
 			}
 		</script>
 	</head>
@@ -97,11 +106,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</c:forEach>
 					</table>
 					<!-- 分页条 -->
-					<input type="hidden" id="pageCount" value="${pageModel.pageCount }"/>
-					<form action="" method="post">
+					<form action="McServlet?action=mcTypeManage" method="post">
+						<input type="hidden" id="pageCount" value="${pageModel.pageCount }"/>
+					</form>
 					<div class="input-group pull-left col-lg-2">
 							<span class="input-group-btn"><button class="btn btn-default"  type="button">每页显示数量</button> </span>
-							<input class="form-control" name="pageSize" onblur="changePageSize(this.value)" type="number" value="${pageModel.pageSize }" min="3" max="20"/>
+							<input class="form-control" id="pageSize" name="pageSize" onblur="changePageSize(this.value)" type="number" value="${pageModel.pageSize }" min="3" max="20"/>
 					</div>					
 					<div class="btn-toolbar" style="padding-left:350px">						
 						<div class="btn-group">
@@ -125,10 +135,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<span class="input-group-btn"><button class="btn btn-default" type="submit">转到</button> </span>
 						</div>
 							<!-- /input-group -->						
-						</div><!-- /col_lg_2 -->
-						
+						</div><!-- /col_lg_2 -->						
 					</div>	
-					</form>
+					
 				</div>					
 			</div>
 		</div>
