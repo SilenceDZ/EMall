@@ -41,7 +41,21 @@ public class ShopCar {
 		}
 		return shopCar;
 	}
-	
+	/**
+	 * @Title:updateCount
+	 * @Description:修改商品数量
+	 * @param micid 商品id
+	 * @param count
+	 * @throws
+	 */
+	public void updateCount(int mcid,int count){
+		for (McBean mc: list) {
+			if(mcid==mc.getMcid()){
+				mc.setCount(count);
+				break;
+			}
+		}
+	}
 	/**
 	 * @Title:add
 	 * @Description:添加商品

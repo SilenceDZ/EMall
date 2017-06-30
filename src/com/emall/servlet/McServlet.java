@@ -2,6 +2,7 @@ package com.emall.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,12 +10,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.emall.bean.McTypeBean;
+import com.emall.service.IMcTypeService;
+import com.emall.service.impl.McTypeServiceImpl;
+
 
 @WebServlet("/McServlet")
 public class McServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-
+	
+	private IMcTypeService dao=new McTypeServiceImpl();
 	/**
 	 * Constructor of the object.
 	 */
@@ -46,12 +52,48 @@ public class McServlet extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		String action=request.getParameter("action");
-		out.print(action);
-		request.getRequestDispatcher("commodityMana.jsp");
+		switch(action){
+		case "mcTypeManage" :{
+			mcTypeManage(request, response);
+			break;
+		}
+		case "mcInfoManage":{
+			mcInfoManage(request, response);
+			break;
+		}
+		case "addMc" :{
+			addMcType(request, response);
+			break;
+		}
+		case "addMcType":{
+			addMcType(request, response);
+			break;
+		}
+			default:break;
+		}		
 		out.flush();
 		out.close();
 	}
-
+	public void mcTypeManage(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {		
+		List<McTypeBean> list=dao.query(null);
+		request.setAttribute("list", list);
+		request.getRequestDispatcher("admin/mcManager.jsp").forward(request, response);
+	}
+	public void mcInfoManage(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.getRequestDispatcher("admin/mcInfoManage.jsp").forward(request, response);
+	}
+	public void addMc(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		request.getRequestDispatcher("admin/addMc.jsp").forward(request, response);
+	}
+	public void addMcType(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		request.getRequestDispatcher("admin/addMcType.jsp").forward(request, response);
+	}
 	/**
 	 * The doPost method of the servlet. <br>
 	 *

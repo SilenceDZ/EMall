@@ -1,20 +1,15 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
+
 <!DOCTYPE html>
 <html>
-<head>
-	<base href="<%=basePath%>">
-</head>
-<body>
+
+
 	<!--“col-sm-offset-2 col-sm-10”的意思就是当前div往右偏移col-sm-2，然后再占位col-sm-10。-->
             <div class="col-sm-3 col-md-2 sidebar ">
                 <!--左侧管理栏-->
                 <ul class="nav nav-sidebar">
                     <li class="active">
-                        <a href="index.jsp" class="active">首页<span class="sr-only">(current)</span></a>
+                        <a href="admin/index.jsp" class="active">首页<span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
                 <ul class="nav nav-sidebar">
@@ -24,19 +19,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <div class="collapse" id="commodityManager">
                             <ul class="nav nav-sidebar-subitem ">
                                 <li>
-                                    <a href="McServlet">
+                                    <a href="McServlet?action=mcTypeManage">
                                         <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>商品类别管理</a>
                                 </li>
                                 <li>
-                                    <a href="admin/index.jsp">
+                                    <a href="McServlet?action=mcInfoManage">
                                         <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>商品信息管理</a>
                                 </li>
                                 <li>
-                                    <a href="/admin">
+                                    <a href="McServlet?action=addMc">
                                         <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>添加商品</a>
                                 </li>
                                 <li>
-                                    <a href="/admin">
+                                    <a href="McServlet?action=addMcType">
                                         <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>添加商品类别</a>
                                 </li>
                             </ul>
@@ -86,7 +81,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </li>
                 </ul>
             </div>
-</body>
+
     
             
 </html>

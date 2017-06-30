@@ -48,6 +48,7 @@ public class McTypeDaoImpl extends BaseDao implements IMcTypeDao {
 	public List<McTypeBean> query(McTypeBean mcType) {
 		String sql="select * from T_MCTYPE where 1=1 ";
 		List<Object>  params=new ArrayList<>();
+		//如果传入的参数为null则查询所有的数据
 		if(mcType!=null){			
 			if(!WebUtils.isEmpty(mcType.getTypename()) ){
 				sql+="and typename like ?";

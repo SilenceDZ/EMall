@@ -17,8 +17,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</head>
 
 	<body>
+	<!--@include file="topNavbar.jsp" --%>  
+	<!--jsp:include page="../admin/topNavbar.jsp"> 注意两者的区别 -->
+	
 		<%@include file="topNavbar.jsp" %>
-		
 		<!--
         	作者：offline
         	时间：2017-06-16

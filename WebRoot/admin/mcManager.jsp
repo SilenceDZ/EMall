@@ -3,17 +3,19 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 	<head>
+		<base href="<%=basePath%>">
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width,initial-sacle=1" />
-		<link rel="stylesheet" href="../css/bootstrap.min.css" />
-		<link rel="stylesheet" href="../css/adminComm.css" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/adminComm.css" />
 		<title>商品管理</title>
 	</head>
+	
 
 	<body>
 		<jsp:include page="topNavbar.jsp"></jsp:include>
@@ -34,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<div class="input-group">
 								<input type="text" class="form-control" placeholder="Search for...">
 								<span class="input-group-btn">
-					        <button class="btn btn-default" type="button">搜索</button>
+					        <button class="btn btn-default" type="button">search</button>
 					      </span>
 							</div>
 							<!-- /input-group -->
@@ -51,46 +53,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<th>所属父类</th>
 							<th>操作</th>
 						</tr>
+						<c:forEach var="mcType" items="${list }">
 						<tr>
 							<td><input type="checkbox"></td>
-							<td>1</td>
-							<td>计算机</td>
-							<td>电子</td>
+							<td>${mcType.typeid }</td>							
+							<c:if test="${mcType.fatherid>0}">
+								<td ><p class="pull-right">${mcType.typename }</p></td>
+							</c:if>
+							<c:if test="${mcType.fatherid==0}">
+								<td>${mcType.typename }</td>
+							</c:if>
+							<td>${mcType.fatherid}</td>
 							<td>&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-info">修改</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<button class="btn btn-danger">删除</button></td>
 						</tr>
-						<tr>
-							<td><input type="checkbox"></td>
-							<td>1</td>
-							<td>计算机</td>
-							<td>电子</td>
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-info">修改</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<button class="btn btn-danger">删除</button></td>
-						</tr>
-						<tr>
-							<td><input type="checkbox"></td>
-							<td>1</td>
-							<td>计算机</td>
-							<td>电子</td>
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-info">修改</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<button class="btn btn-danger">删除</button></td>
-						</tr>
-						<tr>
-							<td><input type="checkbox"></td>
-							<td>1</td>
-							<td>计算机</td>
-							<td>电子</td>
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-info">修改</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<button class="btn btn-danger">删除</button></td>
-						</tr>
-						<tr>
-							<td><input type="checkbox"></td>
-							<td>1</td>
-							<td>计算机</td>
-							<td>电子</td>
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-info">修改</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<button class="btn btn-danger">删除</button></td>
-						</tr>
+						</c:forEach>
 					</table>
 					<!-- 分页条 -->
 					<div class="btn-toolbar" style="padding-left:350px">
@@ -121,7 +98,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 		<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-		<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	</body>
 
 </html>
