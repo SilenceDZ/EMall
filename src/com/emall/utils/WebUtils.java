@@ -1,5 +1,7 @@
 package com.emall.utils;
 
+import javax.servlet.http.HttpServletRequest;
+
 public class WebUtils {
 	/**
 	 * @Title:parseInt
@@ -30,5 +32,35 @@ public class WebUtils {
 			return true;
 		}
 		return false;
+	}
+	/**
+	 * @Title:getPageSize
+	 * @Description:获取页面值大小
+	 * @param request 请求对象
+	 * @param defaultNum 默认值
+	 * @return
+	 * @throws
+	 */
+	public static int getPageSize(HttpServletRequest request,int defaultNum){
+		String pageSize=request.getParameter("pageSize");
+		if(!isEmpty(pageSize)){
+			return parseInt(pageSize,defaultNum);
+		}
+		return defaultNum;
+	}
+	/**
+	 * @Title:getCurrentPage
+	 * @Description:获取当前页面
+	 * @param request 请求对象
+	 * @param defaultNum 默认值
+	 * @return
+	 * @throws
+	 */
+	public static int getCurrentPage(HttpServletRequest request,int defaultNum){
+		String currentPage=request.getParameter("currentPage");
+		if(!isEmpty(currentPage)){
+			return parseInt(currentPage,defaultNum);
+		}
+		return defaultNum;
 	}
 }

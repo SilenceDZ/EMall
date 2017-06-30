@@ -12,10 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.emall.bean.McBean;
 import com.emall.bean.McTypeBean;
+import com.emall.bean.PageModel;
 import com.emall.service.IMcService;
 import com.emall.service.IMcTypeService;
 import com.emall.service.impl.McServiceImpl;
 import com.emall.service.impl.McTypeServiceImpl;
+import com.emall.utils.WebUtils;
 
 
 @WebServlet("/McServlet")
@@ -76,13 +78,35 @@ public class McServlet extends HttpServlet {
 		out.flush();
 		out.close();
 	}
+	/**
+	 * @Title:mcTypeManage
+	 * @Description:商品类别管理
+	 * @param request 
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 * @throws
+	 */
 	public void mcTypeManage(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {	
 		IMcTypeService dao=new McTypeServiceImpl();
-		List<McTypeBean> list=dao.query(null);
-		request.setAttribute("list", list);
+		int currentPage=WebUtils.getCurrentPage(request, 1);
+		int pageSize=WebUtils.getPageSize(request, 5);
+		PageModel<McTypeBean> pageModel=dao.queryPageModel(null, currentPage, pageSize);
+//		List<McTypeBean> list=dao.query(null);
+//		request.setAttribute("list", list);
+		request.setAttribute("pageModel", pageModel);
 		request.getRequestDispatcher("admin/mcManager.jsp").forward(request, response);
 	}
+	/**
+	 * @Title:mcInfoManage
+	 * @Description:商品信息管理
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 * @throws
+	 */
 	public void mcInfoManage(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		IMcService dao=new McServiceImpl();
@@ -90,11 +114,29 @@ public class McServlet extends HttpServlet {
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("admin/mcInfoManage.jsp").forward(request, response);
 	}
+	/**
+	 * @Title:addMc
+	 * @Description:增加商品
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 * @throws
+	 */
 	public void addMc(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		request.getRequestDispatcher("admin/addMc.jsp").forward(request, response);
 	}
+	/**
+	 * @Title:addMcType
+	 * @Description:增加商品类别
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 * @throws
+	 */
 	public void addMcType(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
