@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<jsp:include page="comm/topNavbar.jsp"></jsp:include>
     <div class="container" style="background-color: #F1F8FE;height:1000px;">
         <div class="row col-md-6 col-md-offset-3">
-        <h2><p class="text-center">用户注册</p></h2>
+        <h2 class="text-center">用户注册</h2>
             <form class="form-horizontal" action="" id="registerForm">
                 <div class="form-group">
                     <label for="username" class="control-label col-sm-2">用户名</label>

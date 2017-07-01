@@ -53,29 +53,31 @@ public class McManager extends HttpServlet {
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("McManager.doGet()");
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		String action=request.getParameter("action");
-		switch(action){
-		case "mcManage" :{//查询
+		String action = request.getParameter("action");
+
+		switch (action) {
+		case "mcManage": {// 查询
 			mcManage(request, response);
 			break;
 		}
-		case "editInfo":{//编辑
+		case "editInfo": {// 编辑
 			editInfo(request, response);
 			break;
 		}
-		case "addMc" :{//增加
+		case "addMc": {// 增加
 			addMc(request, response);
 			break;
 		}
-		case "delMc":{
-			
+		case "delMc": {
+
 			break;
-		}		
-			default:break;
-		}		
+		}
+		default:
+			break;
+		}
+
 		out.flush();
 		out.close();
 	}
@@ -98,10 +100,7 @@ public class McManager extends HttpServlet {
 		List<String> type=new ArrayList<String>();
 		McTypeBean mcType=new McTypeBean(); 
 		for (McBean mc : pageModel.getResult()) {
-			System.out.println(mc.getSmalltypeid());
 			mcType=typeDao.queryForSingle(mc.getSmalltypeid());
-			System.out.println(mcType);
-			System.out.println(type);
 			type.add(mcType.getTypename());
 		}	
 		request.setAttribute("pageModel", pageModel);
@@ -151,7 +150,6 @@ public class McManager extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("McManager.doPost()");
 		doGet(request, response);
 	}
 

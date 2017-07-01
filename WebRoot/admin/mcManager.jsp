@@ -15,7 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script src="jquery/jquery.js"></script>
 		<link rel="stylesheet" href="css/adminComm.css" />
 		<script type="text/javascript" src="js/pageBar.js"></script>
-		<title>商品类别管理</title>
+		<title>商品信息管理</title>
 		
 	</head>
 	
@@ -32,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<jsp:include page="sideBar.jsp"></jsp:include>
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2  main msgright">
 					<!--右侧显示内容-->
-					<h2 class="page-header" id="pageName">商品类别管理</h2>
+					<h2 class="page-header" id="pageName">商品信息管理</h2>
 					<div class="page-header">
 						<button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>添加</button>
 						<div class="col-lg-4 pull-right">
@@ -59,7 +59,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<th>价格</th>
 							<th>所属类别</th>
 							<th>购买数量</th>
-							<th>库存状态</th>
+							<th>是否缺货</th>
 							<th>操作</th>
 						</tr>
 						<c:forEach var="mc" items="${pageModel.result }">
