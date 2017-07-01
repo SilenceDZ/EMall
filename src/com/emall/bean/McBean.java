@@ -8,7 +8,7 @@ public class McBean {
 	private String mcdecx;
 	private double price;
 	private String pic;
-	private char flag;
+	private char flag;//是否缺货 0--不缺货 1--缺货
 	private int smalltypeid;
 	private Date createdate ;
 	private int quantity;//库存

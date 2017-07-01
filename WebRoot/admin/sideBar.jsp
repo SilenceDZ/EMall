@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html>
-
+	
 
 	<!--“col-sm-offset-2 col-sm-10”的意思就是当前div往右偏移col-sm-2，然后再占位col-sm-10。-->
             <div class="col-sm-3 col-md-2 sidebar ">
@@ -19,19 +19,19 @@
                         <div class="collapse" id="commodityManager">
                             <ul class="nav nav-sidebar-subitem ">
                                 <li>
-                                    <a href="McServlet?action=mcTypeManage">
+                                    <a href="McTypeManager?action=mcTypeManage">
                                         <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>商品类别管理</a>
                                 </li>
                                 <li>
-                                    <a href="McServlet?action=mcInfoManage">
+                                    <a href="McManager?action=mcManage">
                                         <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>商品信息管理</a>
                                 </li>
                                 <li>
-                                    <a href="McServlet?action=addMc">
+                                    <a href="McManager?action=addMc">
                                         <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>添加商品</a>
                                 </li>
                                 <li>
-                                    <a href="McServlet?action=addMcType">
+                                    <a href="McTypeManager?action=addMc">
                                         <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>添加商品类别</a>
                                 </li>
                             </ul>

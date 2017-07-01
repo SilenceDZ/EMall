@@ -1,5 +1,4 @@
 package com.emall.servlet;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -19,16 +18,18 @@ import com.emall.service.impl.McServiceImpl;
 import com.emall.service.impl.McTypeServiceImpl;
 import com.emall.utils.WebUtils;
 
+@WebServlet("/McTypeManager")
+public class McTypeManager extends HttpServlet {
 
-@WebServlet("/McServlet")
-public class McServlet extends HttpServlet {
-
+	/**
+	 * @fields serialVersionUID:TODO(用一句话描述这个变量表示什么) 
+	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * Constructor of the object.
 	 */
-	public McServlet() {
+	public McTypeManager() {
 		super();
 	}
 
@@ -57,16 +58,12 @@ public class McServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		String action=request.getParameter("action");
 		switch(action){
-		case "mcTypeManage" :{
+		case "mcTypeManage" :{//查询
 			mcTypeManage(request, response);
 			break;
 		}
-		case "mcInfoManage":{
+		case "mcTypeInfoManage":{
 			mcInfoManage(request, response);
-			break;
-		}
-		case "addMc" :{
-			addMcType(request, response);
 			break;
 		}
 		case "addMcType":{
@@ -93,11 +90,8 @@ public class McServlet extends HttpServlet {
 		int currentPage=WebUtils.getCurrentPage(request, 1);
 		int pageSize=WebUtils.getPageSize(request, 5);
 		PageModel<McTypeBean> pageModel=dao.queryPageModel(null, currentPage, pageSize);
-		System.out.println("pageModel.getCurrentPage():"+pageModel.getCurrentPage());
-//		List<McTypeBean> list=dao.query(null);
-//		request.setAttribute("list", list);
 		request.setAttribute("pageModel", pageModel);
-		request.getRequestDispatcher("admin/mcManager.jsp").forward(request, response);
+		request.getRequestDispatcher("admin/mcTypeManager.jsp").forward(request, response);
 	}
 	/**
 	 * @Title:mcInfoManage
@@ -113,7 +107,7 @@ public class McServlet extends HttpServlet {
 		IMcService dao=new McServiceImpl();
 		List<McBean> list=dao.query(null);
 		request.setAttribute("list", list);
-		request.getRequestDispatcher("admin/mcInfoManage.jsp").forward(request, response);
+		request.getRequestDispatcher("admin/mcManager.jsp").forward(request, response);
 	}
 	/**
 	 * @Title:addMc

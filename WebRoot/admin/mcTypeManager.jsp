@@ -48,31 +48,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 					
 					<!-- 主体内容 -->
-					<%
-					int i=0;
-					 %>
 					<table class="table table-hover ">
 						<tr>
 							<th><input type="checkbox">选择</th>
-							<th>商品编号</th>
-							<th>商品名称</th>
-							<th>价格</th>
-							<th>所属类别</th>
-							<th>购买数量</th>
-							<th>库存状态</th>
+							<th>类别编号</th>
+							<th>类别名称</th>
+							<th>所属父类</th>
 							<th>操作</th>
 						</tr>
-						<c:forEach var="mc" items="${pageModel.result }">
+						<c:forEach var="mcType" items="${pageModel.result }">
 						<tr>
 							<td><input type="checkbox"></td>
-							<td>${mc.mcid }</td>
-							<td>${mc.mcname }</td>	
-							<td>${mc.price }</td>
-							<c:forEach var="typename" items="${typeList }" step="1" begin="<%=i %>" end="<%=i++ %>">
-							<td>${typename }</td>
-							</c:forEach>
-							<td>${mc.count }</td>
-							<td>${mc.flag eq 0?'否':'是'}</td>
+							<td>${mcType.typeid }</td>							
+							<c:if test="${mcType.fatherid>0}">
+								<td ><p class="text-center">${mcType.typename }</p></td>
+							</c:if>
+							<c:if test="${mcType.fatherid==0}">
+								<td>${mcType.typename }</td>
+							</c:if>
+							<td>${mcType.fatherid}</td>
 							<td>&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-info">修改</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<button class="btn btn-danger">删除</button></td>
 						</tr>
@@ -111,7 +105,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</div><!-- /col_lg_2 -->						
 					</div>	
 					<input type="hidden" id="pageCount" value="${pageModel.pageCount }"/>
-					<form action="McManager?action=mcManage" method="post" id="pageForm">
+					<form action="McTypeManager?action=mcTypeManage" method="post" id="pageForm">
 						<input type="hidden" id="pageSize" name="pageSize" value="${pageModel.pageSize }"/>
 						<input type="hidden" id="currentPage" name="currentPage" value="${pageModel.currentPage }"/>
 					</form>
