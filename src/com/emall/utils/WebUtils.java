@@ -43,6 +43,7 @@ public class WebUtils {
 	 */
 	public static int getPageSize(HttpServletRequest request,int defaultNum){
 		String pageSize=request.getParameter("pageSize");
+		System.out.println("Webutil:getPagesize--->"+pageSize);
 		if(!isEmpty(pageSize)){
 			return parseInt(pageSize,defaultNum);
 		}
@@ -58,6 +59,7 @@ public class WebUtils {
 	 */
 	public static int getCurrentPage(HttpServletRequest request,int defaultNum){
 		String currentPage=request.getParameter("currentPage");
+		System.out.println("webutil:getCurrentPage---->"+currentPage);
 		if(!isEmpty(currentPage)){
 			return parseInt(currentPage,defaultNum);
 		}

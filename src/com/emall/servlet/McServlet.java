@@ -93,6 +93,7 @@ public class McServlet extends HttpServlet {
 		int currentPage=WebUtils.getCurrentPage(request, 1);
 		int pageSize=WebUtils.getPageSize(request, 5);
 		PageModel<McTypeBean> pageModel=dao.queryPageModel(null, currentPage, pageSize);
+		System.out.println("pageModel.getCurrentPage():"+pageModel.getCurrentPage());
 //		List<McTypeBean> list=dao.query(null);
 //		request.setAttribute("list", list);
 		request.setAttribute("pageModel", pageModel);
@@ -155,19 +156,7 @@ public class McServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
-		out.println("<HTML>");
-		out.println("  <HEAD><TITLE>A Servlet</TITLE></HEAD>");
-		out.println("  <BODY>");
-		out.print("    This is ");
-		out.print(this.getClass());
-		out.println(", using the POST method");
-		out.println("  </BODY>");
-		out.println("</HTML>");
-		out.flush();
-		out.close();
+		doGet(request, response);
 	}
 
 	/**
