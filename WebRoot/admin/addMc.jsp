@@ -28,46 +28,68 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         	描述：自适应布局
         -->
 		<div class="container-fluid">
-			<div class="row">
+			<div class="row"> 
 				<jsp:include page="sideBar.jsp"></jsp:include>
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2  main msgright">
 					<!--右侧显示内容-->
 					<h2 class="page-header" id="pageName">添加商品</h2>
 					<!-- 输入表单 -->
-				<div class="row col-md-6 col-md-offset-3">
-				<form class="form-horizontal" action="McManager?action=addMc" id="registerForm">
+				<div class="row col-md-8 col-md-offset-1">
+			<form class="form-horizontal" action="McManager?action=addMc" id="addMcForm">
                 <div class="form-group">
-                    <label for="username" class="control-label col-sm-2">商品名</label>
-                    <div class="col-sm-10"><input type="text" class="form-control" id="Username" name="username" placeholder="Username"></div>
+                    <label for="username" class="control-label col-sm-4">商品名称</label>
+                    <div class="col-sm-8"><input type="text" class="form-control" id="mcname" name="mcname" placeholder="商品名"></div>
+                </div>
+               
+                <div class="form-group">
+                    <label for="pwd" class="control-label col-sm-4">所属大类</label>
+                    <div class="col-sm-8">
+                    <select class="form-control">
+					  <option>--选择大类--</option>
+					  <option>2</option>
+					  <option>3</option>
+					  <option>4</option>
+					  <option>5</option>
+					</select>
+					</div>
                 </div>
                 <div class="form-group">
-                    <label for="pwd" class="control-label col-sm-2">商品描述</label>
-                    <textarea class="form-control" rows="3"></textarea>
+                    <label for="pwd" class="control-label col-sm-4">所属小类</label>
+                    <div class="col-sm-8">
+                    <select class="form-control">
+					  <option>--选择小类--</option>
+					  <option>2</option>
+					  <option>3</option>
+					  <option>4</option>
+					  <option>5</option>
+					</select>
+					</div>
                 </div>
                 <div class="form-group">
-                    <label for="repwd" class="control-label col-sm-2">价格</label>
-                    <div class="col-sm-10"><input type="password" class="form-control" id="Repwd" name="repassword" placeholder="RepeatPassword"></div>
+                    <label for="birthday" class="control-label col-sm-4">上架时间</label>
+                    <div class="col-sm-8"><input type="date" class="form-control" id="createdate" name="createdate" placeholder="上架时间"></div>
                 </div>
                 <div class="form-group">
-                    <label for="sex" class="control-label col-sm-2">略缩图</label>
-                    <div class="col-sm-10"><input type="text" class="form-control" id="Sex" name="sex" placeholder="Sex"></div>
-                    
+                    <label for="email" class="control-label col-sm-4">库存数量</label>
+                    <div class="col-sm-8"><input type="text" class="form-control" id="count" name="count" placeholder="库存数量"></div>
                 </div>
                 <div class="form-group">
-                    <label for="realname" class="control-label col-sm-2">商品小类别</label>
-                    <div class="col-sm-10"><input type="text" class="form-control" id="Realname" name="realname" placeholder="Realname"></div>
+                	<label for="repwd" class="control-label col-sm-4">价格</label>                    
+				    <div class="input-group col-sm-8" style="padding-left:15px;">
+				      <input type="text" class="form-control " id="exampleInputAmount" placeholder="价格">
+				      <div class="input-group-addon">￥</div>
+				    </div>
                 </div>
                 <div class="form-group">
-                    <label for="birthday" class="control-label col-sm-2">上架时间</label>
-                    <div class="col-sm-10"><input type="text" class="form-control" id="Birthday" name="birthday" placeholder="Birthday"></div>
+                    <label for="exampleInputFile" class="control-label col-sm-4">图片</label>
+    				<div class="col-sm-8"><input type="file" id="mcpicpath"></div>    				
                 </div>
                 <div class="form-group">
-                    <label for="email" class="control-label col-sm-2">库存数量</label>
-                    <div class="col-sm-10"><input type="text" class="form-control" id="Email" name="email" placeholder="Email"></div>
-                </div>
-                
-                <button class="btn btn-success col-sm-2 col-sm-offset-2" type="submit">提交</button>
-                <button class="btn btn-success col-sm-2 col-sm-offset-4" type="reset">重置</button>
+                    <label for="pwd" class="control-label col-sm-4">商品描述</label>
+                    <div class="col-sm-8"><textarea class="form-control " rows="3"></textarea></div>
+                </div>                
+                <button class="btn btn-success col-sm-2 col-sm-offset-3" type="submit">确定</button>
+                <button class="btn btn-success col-sm-2 col-sm-offset-5" type="reset">重置</button>
             </form>
 				</div>
 				
