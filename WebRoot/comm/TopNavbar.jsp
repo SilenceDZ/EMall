@@ -32,7 +32,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#">我的订单</a></li>
-                    <li><a href="#">我的购物车</a></li>
+                    <li><a href="shopCar.jsp">我的购物车</a></li>
                     <li><a href="#">个人中心</a></li>
                     <li><a href="#">联系客服</a></li>
                 </ul>
