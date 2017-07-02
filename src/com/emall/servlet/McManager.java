@@ -105,7 +105,7 @@ public class McManager extends HttpServlet {
 		}	
 		request.setAttribute("pageModel", pageModel);
 		request.setAttribute("typeList", type);
-		request.getRequestDispatcher("admin/mcManager.jsp").forward(request, response);
+		request.getRequestDispatcher("admin/mcmanager/mcManager.jsp").forward(request, response);
 	}
 	/**
 	 * @Title:editInfo
@@ -121,7 +121,7 @@ public class McManager extends HttpServlet {
 		IMcService dao=new McServiceImpl();
 		List<McBean> list=dao.query(null);
 		request.setAttribute("list", list);
-		request.getRequestDispatcher("admin/mcInfoManage.jsp").forward(request, response);
+		request.getRequestDispatcher("admin/mcmanager/mcInfoManage.jsp").forward(request, response);
 	}
 	/**
 	 * @Title:addMc
@@ -135,7 +135,7 @@ public class McManager extends HttpServlet {
 	public void addMc(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		request.getRequestDispatcher("admin/addMc.jsp").forward(request, response);
+		request.getRequestDispatcher("admin/mcmanager/addMc.jsp").forward(request, response);
 	}
 	
 	/**

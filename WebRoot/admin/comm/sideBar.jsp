@@ -31,7 +31,7 @@
                                         <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>添加商品</a>
                                 </li>
                                 <li>
-                                    <a href="McTypeManager?action=addMc">
+                                    <a href="admin/mcmanager/addMcType.jsp">
                                         <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>添加商品类别</a>
                                 </li>
                             </ul>
@@ -43,22 +43,11 @@
                         <div class="collapse" id="userManager">
                             <ul class="nav nav-sidebar-subitem ">
                                 <li>
-                                    <a href="#">
+                                    <a href="admin/usermanager/userManager.jsp">
                                         <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>注册用户管理</a>
                                 </li>
-                                <li><a href="#"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>系统用户管理</a></li>
-                                <li><a href="#"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>添加用户</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a data-toggle="collapse" href="#messageManager" aria-expanded="false" aria-controls="messageManager">
-                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>个人资料管理</a>
-                        <div class="collapse" id="messageManager">
-                            <ul class="nav nav-sidebar-subitem ">
-                                <li><a href="#"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>显示个人资料</a></li>
-                                <li><a href="#"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>个人资料修改</a></li>
-                                <li><a href="#"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>密码修改</a></li>
+                                <li><a href="admin/usermanager/adminManager.jsp"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>系统用户管理</a></li>
+                                <li><a href="admin/usermanager/addUser.jsp"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>添加用户</a></li>
                             </ul>
                         </div>
                     </li>
@@ -74,6 +63,18 @@
                             </ul>
                         </div>
                     </li>
+                    <li>
+                        <a data-toggle="collapse" href="#messageManager" aria-expanded="false" aria-controls="messageManager">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>个人资料管理</a>
+                        <div class="collapse" id="messageManager">
+                            <ul class="nav nav-sidebar-subitem ">
+                                <li><a href="#"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>显示个人资料</a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>个人资料修改</a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>密码修改</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    
                 </ul>
                 <ul class="nav nav-sidebar">
                     <li>

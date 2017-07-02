@@ -20,7 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--@include file="topNavbar.jsp" --%>  
 	<!--jsp:include page="../admin/topNavbar.jsp"> 注意两者的区别 -->
 	
-		<%@include file="topNavbar.jsp" %>
+		<%@include file="comm/topNavbar.jsp" %>
 		<!--
         	作者：offline
         	时间：2017-06-16
@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         -->
 		<div class="container-fluid">
 			<div class="row">
-				<jsp:include page="sideBar.jsp"></jsp:include>
+				<jsp:include page="comm/sideBar.jsp"></jsp:include>
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2  main msgright">
 					<!--右侧显示内容-->
 					<h2 class="page-header" id="pageName">管理控制台首页</h2>

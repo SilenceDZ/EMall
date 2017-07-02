@@ -15,14 +15,14 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
  */
 public class DataSourceConfig {
 	
-	/*private static final String URL="jdbc:oracle:thin:@localhost:1521:xe";
+	private static final String URL="jdbc:oracle:thin:@localhost:1521:xe";
 	private static final String USERNAME="emall";
 	private static final String PASSWORD="emall";
-	private static final String DRIVER="oracle.jdbc.driver.OracleDriver";*/
-	private static final String URL="jdbc:mysql://localhost:3306/musicstore?useUnicode=true&amp;characterEncoding=utf-8";
+	private static final String DRIVER="oracle.jdbc.driver.OracleDriver";
+	/*private static final String URL="jdbc:mysql://localhost:3306/musicstore?useUnicode=true&amp;characterEncoding=utf-8";
 	private static final String USERNAME="root";
 	private static final String PASSWORD="zhongMYSQL";
-	private static final String DRIVER="com.mysql.jdbc.Driver";
+	private static final String DRIVER="com.mysql.jdbc.Driver";*/
 	private static DataSource dataSource;
 	
 	public static DataSource getDataSource(){
