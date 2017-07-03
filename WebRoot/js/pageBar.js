@@ -5,7 +5,6 @@
 //再执行后续的代码
 $(document).ready(function() {
 	initPageBar();
-
 });
 function initPageBar() {
 	var currentPage = $("#pageNow").html();
@@ -18,10 +17,12 @@ function initPageBar() {
 		$("#prePage").html("1");
 	}
 	var pageCount = $("#pageCount").val();
-	if ($("#nextPage").text() > pageCount) {
+	if(currentPage==pageCount){
 		$("#nextPage").hide();
+		$("#nextPage2").hide();
 	}
-	if ($("#nextPage2").text() > pageCount) {
+	
+	if((parseInt(currentPage)+1)==pageCount){
 		$("#nextPage2").hide();
 	}
 }
