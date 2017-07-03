@@ -23,9 +23,14 @@
                     <li >
                         <p class="navbar-text" id="usermsg">${user.username }您好！欢迎来到EShop</p>
                     </li>
+                    <%if(request.getSession().getAttribute("user")==null){ %>
                     <li>
                         <a href="#" data-toggle="modal" data-target="#login">用户登录</a>
                     </li>
+                    <%}else{ %>
+                    <li>
+                        <a href="UserManager?action=logout" >用户注销</a>
+                    </li><%} %>
                     <li>
                         <a href="register.jsp">用户注册</a>
                     </li>
