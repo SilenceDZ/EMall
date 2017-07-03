@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -136,7 +137,12 @@ public class BaseDao {
 							}else{
 								f.set(obj, value);
 							}
-						}else{
+						}else if(value instanceof java.sql.Timestamp){
+							java.sql.Timestamp val=(Timestamp) value;
+							java.sql.Date date=new java.sql.Date(val.getTime());
+							f.set(obj,date);
+						}
+						else{
 							f.set(obj, value);
 						}
 						
@@ -209,6 +215,10 @@ public class BaseDao {
 							else{
 								f.set(obj, value);
 							}
+						}else if(value instanceof java.sql.Timestamp){
+							java.sql.Timestamp val=(Timestamp) value;
+							java.sql.Date date=new java.sql.Date(val.getTime());
+							f.set(obj,date);
 						}else{
 							f.set(obj, value);
 						}						

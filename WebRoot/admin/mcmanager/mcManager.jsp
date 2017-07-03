@@ -20,8 +20,6 @@
 <title>商品信息管理</title>
 
 </head>
-
-
 <body>
 	<jsp:include page="../comm/topNavbar.jsp"></jsp:include>
 	<!--

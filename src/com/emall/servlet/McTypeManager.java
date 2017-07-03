@@ -63,7 +63,7 @@ public class McTypeManager extends HttpServlet {
 			break;
 		}
 		case "mcTypeInfoManage":{
-			mcInfoManage(request, response);
+			mcTypeInfoManage(request, response);
 			break;
 		}
 		case "addMcType":{
@@ -91,7 +91,7 @@ public class McTypeManager extends HttpServlet {
 		int pageSize=WebUtils.getPageSize(request, 5);
 		PageModel<McTypeBean> pageModel=dao.queryPageModel(null, currentPage, pageSize);
 		request.setAttribute("pageModel", pageModel);
-		request.getRequestDispatcher("admin/mcTypeManager.jsp").forward(request, response);
+		request.getRequestDispatcher("admin/mcmanager/mcTypeManager.jsp").forward(request, response);
 	}
 	/**
 	 * @Title:mcInfoManage
@@ -102,26 +102,9 @@ public class McTypeManager extends HttpServlet {
 	 * @throws IOException
 	 * @throws
 	 */
-	public void mcInfoManage(HttpServletRequest request, HttpServletResponse response)
+	public void mcTypeInfoManage(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		IMcService dao=new McServiceImpl();
-		List<McBean> list=dao.query(null);
-		request.setAttribute("list", list);
-		request.getRequestDispatcher("admin/mcManager.jsp").forward(request, response);
-	}
-	/**
-	 * @Title:addMc
-	 * @Description:增加商品
-	 * @param request
-	 * @param response
-	 * @throws ServletException
-	 * @throws IOException
-	 * @throws
-	 */
-	public void addMc(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		request.getRequestDispatcher("admin/addMc.jsp").forward(request, response);
+		
 	}
 	/**
 	 * @Title:addMcType
@@ -135,7 +118,7 @@ public class McTypeManager extends HttpServlet {
 	public void addMcType(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		request.getRequestDispatcher("admin/addMcType.jsp").forward(request, response);
+		request.getRequestDispatcher("admin/mcmanager/addMcType.jsp").forward(request, response);
 	}
 	/**
 	 * The doPost method of the servlet. <br>

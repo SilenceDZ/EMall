@@ -94,7 +94,6 @@ public class McDaoImpl extends BaseDao implements IMcDao {
 				params.add("%"+mc.getMcname()+"%");
 			}
 		}
-
 		return super.queryPageModel(querySql,countSql,whereSql,null,McBean.class,currentPage,pageSize,params);
 	}
 	

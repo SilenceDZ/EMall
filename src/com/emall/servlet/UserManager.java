@@ -2,6 +2,9 @@ package com.emall.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import com.emall.bean.UserBean;
 import com.emall.service.IUserService;
 import com.emall.service.impl.UserServiceImpl;
+import com.emall.utils.WebUtils;
 @WebServlet("/UserManager")
 public class UserManager extends HttpServlet {
 
@@ -66,16 +70,28 @@ public class UserManager extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		String action=request.getParameter("action");
-		switch(action){
-		case "login":{
-			login(request, response);
-			break;
+		if(action!=null){
+			switch(action){
+			case "login":{
+				login(request, response);
+				break;
+				}
+			case "logout":{
+				logout(request, response);
+				break;
+				}
+			case "register":{
+				register(request, response);
+				break;
 			}
-		case "logout":{
-			logout(request, response);
-			break;
+			default :{
+				break;
 			}
+			}
+		}else{
+			System.out.println("action is null");
 		}
+		
 		out.flush();
 		out.close();
 	}
@@ -100,12 +116,51 @@ public class UserManager extends HttpServlet {
 		response.sendRedirect("index.jsp");
 	}
 	
-	public int register(HttpServletRequest request, HttpServletResponse response)
+	public void register(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException{
 		IUserService dao=new UserServiceImpl();
-		UserBean user=new UserBean();
+		String username=request.getParameter("username");
+		String password=request.getParameter("password");
+		String sex=request.getParameter("sex");		
+		String truename=request.getParameter("realname");
+		String bday=request.getParameter("birthday");
+		String email=request.getParameter("email");
+		String phoneno=request.getParameter("phoneno");
+		String address=request.getParameter("address");
+		String postcade=request.getParameter("postcade");
+		
+		long date=System.currentTimeMillis();
+		java.sql.Date regdate=new Date(date);
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-mm-dd");
+		java.util.Date temp=null;
+		java.sql.Date birthday=null;
+		try {
+			temp = sdf.parse(bday);
+			birthday=new Date(temp.getTime());
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		char usersex;
+		if(sex.equals("男")){
+			 usersex='0';
+		}else{
+			usersex='1';
+		}
+		System.out.println("birthday:"+birthday);
+		System.out.println("username:"+username);
+		System.out.println("password:"+password);
+		System.out.println("usersex:"+usersex);
+		System.out.println("truename:"+truename);
+		System.out.println("birthday:"+birthday);
+		System.out.println("email:"+email);
+		System.out.println("phoneno:"+phoneno);
+		System.out.println("address:"+address);
+		System.out.println("postcade:"+postcade);
+		System.out.println("regdate:"+regdate);
+		UserBean user=new UserBean(-1, username, password, truename, usersex, birthday, email,phoneno, postcade, address, regdate, '0', regdate, 0);
+		
 		dao.add(user);
-		return 0;
+		
 	}
 	/**
 	 * Initialization of the servlet. <br>

@@ -28,7 +28,9 @@ public class Dbutils {
 			/*Class.forName(DRIVER);
 			conn=DriverManager.getConnection(URL, USERNAME, PASSWORD);*/
 			//使用c3p0数据库连接池连接数据库
-			conn=DataSourceConfig.getDataSource().getConnection();
+//			conn=DataSourceConfig.getDataSource().getConnection();
+			//使用JNDI链接数据库
+			conn=DataSourceJNDIConfig.getConnection();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}		
