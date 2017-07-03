@@ -20,10 +20,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         -->
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/commstyle.css" rel="stylesheet"/>
-    
+    <script type="text/javascript" src="js/login.js"></script>
 </head>
 
 <body>
+	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <jsp:include page="comm/topNavbar.jsp"></jsp:include>
     <jsp:include page="comm/carousel.jsp"></jsp:include>
     <%@include file="comm/searchBar.jsp" %>
@@ -32,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="row">
         	<!--侧边栏-->
         	<div class="col-sm-3 col-md-2 col-md-offset-1 ">
-            <h3>商品导航</h3>
+            <h3>商品导航${username }</h3>
             <ul class="nav nav-sidebar">
                 <li>
                     <a data-toggle="collapse" href="#computer" aria-expanded="false" aria-controls="computer">
@@ -106,7 +107,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     
     
-    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    
     <script src="js/bootstrap.min.js"></script>
 </body>
 

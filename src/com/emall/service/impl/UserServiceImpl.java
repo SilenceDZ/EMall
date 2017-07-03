@@ -37,7 +37,7 @@ public class UserServiceImpl implements IUserService {
 	}
 
 	@Override
-	public boolean login(String username, String password) {
+	public UserBean login(String username, String password) {
 		return dao.login(username, password);
 	}
 

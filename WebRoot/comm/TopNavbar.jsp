@@ -21,7 +21,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav ">
                     <li >
-                        <p class="navbar-text" id="usermsg">您好！欢迎来到EShop</p>
+                        <p class="navbar-text" id="usermsg">${user.username }您好！欢迎来到EShop</p>
                     </li>
                     <li>
                         <a href="#" data-toggle="modal" data-target="#login">用户登录</a>

@@ -54,6 +54,6 @@ public interface IUserDao {
 	 * @return boolean
 	 * @throws
 	 */
-	public boolean login(String username ,String password);
+	public UserBean login(String username ,String password);
 	public PageModel<UserBean> queryPageModel(UserBean user,int currentPage,int pageSize);
 }

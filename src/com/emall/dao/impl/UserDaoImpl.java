@@ -80,10 +80,12 @@ public class UserDaoImpl extends BaseDao implements IUserDao {
 	}
 	
 	@Override
-	public boolean login(String username, String password) {
-		String sql="select * from t_user where username=? and password=?";
-		if(super.queryForCount(sql, username,password)==1)return true;
-		else return false;
+	public UserBean login(String username, String password) {
+		String sql="select * from t_user where username=? and password=?";		
+		List<Object>  params=new ArrayList<>();
+		params.add(username);
+		params.add(password);
+		return super.queryForSingle(sql, UserBean.class, params.toArray());
 	}
 	
 	@Override
@@ -102,10 +104,10 @@ public class UserDaoImpl extends BaseDao implements IUserDao {
 		return super.queryPageModel(querySql, countSql, whereSql, null, UserBean.class, currentPage, pageSize, params);
 	}
 	public static void main(String[] args) {
-		/*UserDaoImpl dao=new UserDaoImpl();
-		UserBean user=dao.queryForSingle(1);
+		UserDaoImpl dao=new UserDaoImpl();
+		UserBean user=dao.login("Test","888888");
 		System.out.println(user);
-		PageModel<UserBean> page=dao.queryPageModel(null, 1, 3);
+		/*PageModel<UserBean> page=dao.queryPageModel(null, 1, 3);
 		List<UserBean> list=page.getResult();
 		for (UserBean md : list) {
 			System.out.println(md);

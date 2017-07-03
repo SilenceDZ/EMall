@@ -46,6 +46,6 @@ public interface IUserService {
 	 * @throws
 	 */
 	public List<UserBean> query(UserBean user);
-	public boolean login(String username ,String password);
+	public UserBean login(String username ,String password);
 	public PageModel<UserBean> queryPageModel(UserBean user,int currentPage,int pageSize);
 }
