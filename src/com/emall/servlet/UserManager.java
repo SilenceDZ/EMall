@@ -84,16 +84,22 @@ public class UserManager extends HttpServlet {
 				register(request, response);
 				break;
 			}
+			case "registercheck":{
+				break;
+			}
 			default :{
 				break;
 			}
 			}
 		}else{
 			System.out.println("action is null");
-		}
-		
+		}		
 		out.flush();
 		out.close();
+	}
+	public void registercheck(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException{
+		
 	}
 	public void login(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException{
@@ -146,21 +152,16 @@ public class UserManager extends HttpServlet {
 		}else{
 			usersex='1';
 		}
-		System.out.println("birthday:"+birthday);
-		System.out.println("username:"+username);
-		System.out.println("password:"+password);
-		System.out.println("usersex:"+usersex);
-		System.out.println("truename:"+truename);
-		System.out.println("birthday:"+birthday);
-		System.out.println("email:"+email);
-		System.out.println("phoneno:"+phoneno);
-		System.out.println("address:"+address);
-		System.out.println("postcade:"+postcade);
-		System.out.println("regdate:"+regdate);
 		UserBean user=new UserBean(-1, username, password, truename, usersex, birthday, email,phoneno, postcade, address, regdate, '0', regdate, 0);
-		
 		dao.add(user);
-		
+		UserBean userLogin=dao.login(username, password);
+		if(userLogin!=null){			
+			HttpSession session=request.getSession();
+			session.setAttribute("user", user);
+			response.sendRedirect("index.jsp");
+		}else{
+			response.sendRedirect("index.jsp");
+		}	
 	}
 	/**
 	 * Initialization of the servlet. <br>

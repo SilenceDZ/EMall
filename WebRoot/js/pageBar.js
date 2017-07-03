@@ -20,8 +20,7 @@ function initPageBar() {
 	if(currentPage==pageCount){
 		$("#nextPage").hide();
 		$("#nextPage2").hide();
-	}
-	
+	}	
 	if((parseInt(currentPage)+1)==pageCount){
 		$("#nextPage2").hide();
 	}

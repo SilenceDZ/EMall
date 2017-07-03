@@ -42,11 +42,26 @@ function valRepassword(){
 		$("#repasswordmsg").html("");
 	}
 }
-function valUsername(){
-	
+function valUsername(value){
+	if(value.length<3 ||value.length>15){
+		$("#usernamemsg").html("长度必须在3-15个字符");
+		return ;
+	}else{
+		$("#usernamemsg").html("");
+	}
+	var userReg=/^([a-zA-Z0-9])([a-zA-Z0-9_-]{2,14})/;
+	if(!userReg.test(value)){
+		$("#usernamemsg").html("格式错误,建议由数字和字母组成.不能以下划线和减号开头");
+	}else{
+		$("#usernamemsg").html("");
+	}
 }
-function valPassword(){
-	
+function valPassword(value){
+	if(value.length<6||value.length>20){
+		$("#passwordmsg").html("长度必须在6-18个字符");
+	}else{
+		$("#passwordmsg").html("");
+	}
 }
 function valEmail(value){	
 	//^n-->匹配任何开头为 n 的字符串。

@@ -31,17 +31,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <form class="form-horizontal" method="post" action="UserManager?action=register" id="registerForm">
                 <div class="form-group">
                     <label for="username" class="control-label col-sm-2">用户名</label>
-                    <div class="col-sm-7"><input type="text" class="form-control" id="username" name="username" placeholder="Username"></div>
+                    <div class="col-sm-7"><input type="text" class="form-control" id="username" onblur="valUsername(this.value)" name="username" placeholder="Username"></div>
                     <p class="text-danger col-sm-3" id="usernamemsg"></p>
                 </div>
                 <div class="form-group">
                     <label for="password" class="control-label col-sm-2">密码</label>
-                    <div class="col-sm-7"><input type="password" class="form-control" id="password" name="password" placeholder="Password"></div>
+                    <div class="col-sm-7"><input type="password" class="form-control" onblur="valPassword(this.value)" id="password" name="password" placeholder="Password"></div>
                     <p class="text-danger col-sm-3" id="passwordmsg"></p>
                 </div>
                 <div class="form-group">
                     <label for="repassword" class="control-label col-sm-2">确认密码</label>
-                    <div class="col-sm-7"><input type="password" class="form-control" onblur="valRepassword()" id="repassword" name="repassword" placeholder="RepeatPassword"></div>
+                    <div class="col-sm-7"><input type="password" class="form-control" onblur="valRepassword(this.value)" id="repassword" name="repassword" placeholder="RepeatPassword"></div>
                 	<p class="text-danger col-sm-3" id="repasswordmsg"></p>
                 </div>
                 <div class="form-group">
