@@ -3,10 +3,11 @@
  */
 
 function valForm(){
+	alert("valForm");
 	if(valRepassword()&&validateUsername($("#susername").val())&&valPassword($("#password").val())&&valEmail($("#email").val())){
 		return true;
 	}else{
-		false;
+		return false;
 	}
 }
 function valRepassword(){
@@ -15,7 +16,10 @@ function valRepassword(){
 	if(pwd!=repwd){
 		$("#repasswordmsg").html("确认密码错误");
 		return false;
-	}else{
+	}else if(pwd==""){
+		return false;
+	}
+	else{
 		$("#repasswordmsg").html("");
 		return true;
 	}
@@ -63,37 +67,40 @@ function valEmail(value){
 	if(!emailReg.test(value)){
 		$("#emailmsg").html("邮箱格式错误");
 		return false;
+	}else if(pwd==""){
+		return false;
 	}else{
 		$("#emailmsg").html("");
 		return true;
 	}
 }
 function checkuser(){
-	alert("checkuser()");
-	alert($("#username").val());
-	$.ajax({		
-		type:"get",
-		url:"UserManager?action=registercheck&uname="+$("#username").val(),		
-		dateType:"json",
-		success:function(data){		
-			var bo=data.success.toString();
-			if(bo=="true"){
-				$("#usernamemsg").html("");
-				$("#usernamemsg").html("用户名可使用");
-				$("#usernamemsg").removeClass("text-danger text-success");
-				$("#usernamemsg").addClass("text-success");
-				return true;
-			}else{
-				$("#usernamemsg").html("");
-				$("#usernamemsg").html("请重新填写:"+data.msg);
-				$("#usernamemsg").removeClass("text-success text-danger");
-				$("#usernamemsg").addClass("text-danger");
+	if(!($("#username").val()=="")){
+		$.ajax({		
+			type:"get",
+			url:"UserManager?action=registercheck&uname="+$("#username").val(),		
+			dateType:"json",
+			success:function(data){		
+				var bo=data.success.toString();
+				if(bo=="true"){
+					$("#usernamemsg").html("");
+					$("#usernamemsg").html("用户名可使用");
+					$("#usernamemsg").removeClass("text-danger text-success");
+					$("#usernamemsg").addClass("text-success");
+					return true;
+				}else{
+					$("#usernamemsg").html("");
+					$("#usernamemsg").html("请重新填写:"+data.msg);
+					$("#usernamemsg").removeClass("text-success text-danger");
+					$("#usernamemsg").addClass("text-danger");
+					return false;
+				}
+			},
+			error:function(jsXHR){
+				alert("出现错误:"+jqXHR.status);
 				return false;
 			}
-		},
-		error:function(jsXHR){
-			alert("出现错误:"+jqXHR.status);
-			return false;
-		}
-	});
+		});
+	}
+	
 }

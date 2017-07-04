@@ -27,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="container" style="background-color: #F1F8FE;height:1000px;">
         <div class="row col-md-7 col-md-offset-3">
         <h2 class="text-center page-header" style="padding-right: 35px;">用户注册</h2>
-            <form class="form-horizontal" method="post" action="UserManager?action=register"  id="registerForm">
+            <form class="form-horizontal" method="post" action="UserManager?action=register" onSubmit="return valForm()"  id="registerForm">
                 <div class="form-group">
                     <label for="username" class="control-label col-sm-2">用户名</label>
                     <div class="col-sm-7"><input type="text" class="form-control" id="username" onblur="validateUsername(this.value)" name="username" placeholder="Username"></div>
