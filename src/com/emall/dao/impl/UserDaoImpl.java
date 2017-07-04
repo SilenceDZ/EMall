@@ -105,9 +105,12 @@ public class UserDaoImpl extends BaseDao implements IUserDao {
 	}
 	public static void main(String[] args) {
 		UserDaoImpl dao=new UserDaoImpl();
-		UserBean user=dao.login("Test","888888");
+		UserBean user=new UserBean();
+		user.setUsername("Test");
+		System.out.println(dao.registerCheck(user));
+		/*UserBean user=dao.login("Test","888888");
 		System.out.println(user);
-		/*PageModel<UserBean> page=dao.queryPageModel(null, 1, 3);
+		PageModel<UserBean> page=dao.queryPageModel(null, 1, 3);
 		List<UserBean> list=page.getResult();
 		for (UserBean md : list) {
 			System.out.println(md);
@@ -127,6 +130,13 @@ public class UserDaoImpl extends BaseDao implements IUserDao {
 			System.out.println(u);
 		}*/
 		
+	}
+
+	@Override
+	public boolean registerCheck(UserBean user) {
+		String sql="select count(1) from t_user where username=?";
+		if(super.queryForCount(sql, user.getUsername())==1)return true;
+		return false;
 	}
 	
 	

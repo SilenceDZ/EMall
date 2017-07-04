@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONObject;
+
 import com.emall.bean.UserBean;
 import com.emall.service.IUserService;
 import com.emall.service.impl.UserServiceImpl;
@@ -85,6 +87,7 @@ public class UserManager extends HttpServlet {
 				break;
 			}
 			case "registercheck":{
+				registerCheck(request,response);
 				break;
 			}
 			default :{
@@ -97,9 +100,27 @@ public class UserManager extends HttpServlet {
 		out.flush();
 		out.close();
 	}
-	public void registercheck(HttpServletRequest request, HttpServletResponse response)
+	public void registerCheck(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException{
-		
+		System.out.println("UserManager.registerCheck()");
+		IUserService dao=new UserServiceImpl();
+		PrintWriter out = response.getWriter();
+		UserBean user=new UserBean();
+		String username=request.getParameter("uname");
+		System.out.println("uname"+username);
+		user.setUsername(username);
+		response.setContentType("text/json;charset=utf-8");
+		if(dao.registerCheck(user)){//用户名存在
+			System.out.println("用户名已存在");
+			String data="{\"success\":\"false\",\"msg\": \"用户名已被注册!\"}";
+			out.write(data.toString());
+		}else{
+			System.out.println("用户名不存在");
+			String data="{\"success\":true,\"msg\": \"success\"}";
+			out.write(data.toString());
+		}
+		out.flush();
+		out.close();
 	}
 	public void login(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException{
@@ -124,6 +145,7 @@ public class UserManager extends HttpServlet {
 	
 	public void register(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException{
+		System.out.println("UserManager.register()");
 		IUserService dao=new UserServiceImpl();
 		String username=request.getParameter("username");
 		String password=request.getParameter("password");

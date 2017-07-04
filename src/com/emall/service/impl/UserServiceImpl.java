@@ -46,5 +46,10 @@ public class UserServiceImpl implements IUserService {
 			int pageSize) {
 		return dao.queryPageModel(user, currentPage, pageSize);
 	}
+
+	@Override
+	public boolean registerCheck(UserBean user) {
+		return dao.registerCheck(user);
+	}
 	
 }

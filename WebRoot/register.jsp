@@ -19,8 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         body{
             padding-bottom: 20px;
         }
-    </style>
-    
+    </style>    
 </head>
 
 <body>
@@ -28,10 +27,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="container" style="background-color: #F1F8FE;height:1000px;">
         <div class="row col-md-7 col-md-offset-3">
         <h2 class="text-center page-header" style="padding-right: 35px;">用户注册</h2>
-            <form class="form-horizontal" method="post" action="UserManager?action=register" id="registerForm">
+            <form class="form-horizontal" method="post" action="UserManager?action=register"  id="registerForm">
                 <div class="form-group">
                     <label for="username" class="control-label col-sm-2">用户名</label>
-                    <div class="col-sm-7"><input type="text" class="form-control" id="username" onblur="valUsername(this.value)" name="username" placeholder="Username"></div>
+                    <div class="col-sm-7"><input type="text" class="form-control" id="username" onblur="validateUsername(this.value)" name="username" placeholder="Username"></div>
                     <p class="text-danger col-sm-3" id="usernamemsg"></p>
                 </div>
                 <div class="form-group">
@@ -86,15 +85,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <div class="col-sm-7"><input type="text" class="form-control" id="postcade" name="postcade" placeholder="Post"></div>
                     <p class="text-danger col-sm-3" id="postcademsg"></p>
                 </div>
-                <button class="btn btn-success col-sm-2 col-sm-offset-2" type="submit">提交</button>
+                <button class="btn btn-success col-sm-2 col-sm-offset-2" type="submit" onclick="return checkuser()">提交</button>
                 <button class="btn btn-success col-sm-2 col-sm-offset-3" type="reset">重置</button>
             </form>
         </div>
     </div>
     <jsp:include page="comm/login.jsp"></jsp:include>
     <!--尾部版权-->
-    <jsp:include page="comm/copyright.jsp"></jsp:include>
-    
+    <jsp:include page="comm/copyright.jsp"></jsp:include>    
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
 </body>
 </html>

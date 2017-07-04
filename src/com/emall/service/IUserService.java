@@ -46,6 +46,25 @@ public interface IUserService {
 	 * @throws
 	 */
 	public List<UserBean> query(UserBean user);
+	/**
+	 * @Title:login
+	 * @Description:登录
+	 * @param username
+	 * @param password
+	 * @return
+	 * @throws
+	 */
 	public UserBean login(String username ,String password);
+	/**
+	 * @Title:queryPageModel
+	 * @Description:分页查询
+	 * @param user
+	 * @param currentPage
+	 * @param pageSize
+	 * @return
+	 * @throws
+	 */
 	public PageModel<UserBean> queryPageModel(UserBean user,int currentPage,int pageSize);
+	
+	public boolean registerCheck(UserBean user);
 }

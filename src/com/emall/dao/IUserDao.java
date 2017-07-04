@@ -55,5 +55,16 @@ public interface IUserDao {
 	 * @throws
 	 */
 	public UserBean login(String username ,String password);
+	/**
+	 * @Title:queryPageModel
+	 * @Description:分页查询
+	 * @param user 条件查询时存储条件的对象
+	 * @param currentPage 当前页面
+	 * @param pageSize 页面大小
+	 * @return
+	 * @throws
+	 */
 	public PageModel<UserBean> queryPageModel(UserBean user,int currentPage,int pageSize);
+	
+	public boolean registerCheck(UserBean user);
 }
