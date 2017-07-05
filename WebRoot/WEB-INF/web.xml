@@ -773,5 +773,14 @@ Tools are not allowed to add the non-standard information into the
 standard deployment descriptor.
 -->
 <web-app xmlns:web="http://xmlns.jcp.org/xml/ns/javaee">
-  
+	<filter>
+	<!-- 指定struct 2.5的核心过滤器(struct的入口) -->
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>		
+	</filter>
+	<filter-maping>
+	<!-- 设置struct2核心filter的url映射 -->
+	<filter-name>struts2</filter-name>
+	<url-pattern>/*</url-pattern><!-- 代表所有的url请求均转到strut2 -->
+	</filter-maping>
 </web-app>
