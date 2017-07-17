@@ -3,7 +3,7 @@
     "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
     "http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
-	<package name="mcs" extends="struts-default" namespace="/mc" >
+	<package name="mcs" extends="struts-default" namespace="/mc" strict-method-invocation="false" >
 		<action name="mcManage" class="com.emall.action.McAction" method="mcManage">
 			<result name="success">/index.jsp</result>
 		</action>
